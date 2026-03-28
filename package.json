@@ -1,0 +1,8 @@
+{
+  "name": "xiaoxin-news",
+  "version": "1.0.0",
+  "description": "小新早报 - 半导体情报",
+  "scripts": {
+    "start": "npx serve ."
+  }
+}

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小新早报 - 2026年3月28日 | 半导体情报</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* 头部 */
+        .header {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .header .meta {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .header .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        
+        /* 个性化推荐 */
+        .profile {
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .profile h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 12px;
+        }
+        
+        .profile-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tag {
+            background: #f0f4ff;
+            color: #667eea;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+        
+        /* 内容区块 */
+        .section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .t0 { border-left: 4px solid #ff4757; }
+        .t1 { border-left: 4px solid #ffa502; }
+        .t2 { border-left: 4px solid #2ed573; }
+        
+        /* 情报卡片 */
+        .alert-card {
+            background: #fff5f5;
+            border: 1px solid #ffcdd2;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .alert-card h4 {
+            color: #c62828;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        
+        .chart {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+        
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+        
+        .data-item {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .data-item .value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .data-item .label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+        
+        /* 行动建议 */
+        .action-box {
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 12px;
+        }
+        
+        .action-box h5 {
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+        
+        .action-list {
+            list-style: none;
+        }
+        
+        .action-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .action-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+        }
+        
+        /* 表格 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .up { color: #ff4757; }
+        .down { color: #2ed573; }
+        
+        /* 任务清单 */
+        .task-section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .task-category {
+            margin-bottom: 20px;
+        }
+        
+        .task-category h4 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        .urgent { color: #ff4757; }
+        .important { color: #ffa502; }
+        .normal { color: #2ed573; }
+        
+        .task-item {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .task-num {
+            background: #667eea;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+        
+        .task-content {
+            flex: 1;
+        }
+        
+        .task-title {
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        
+        .task-meta {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            padding: 20px;
+            font-size: 12px;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .header { padding: 20px; }
+            .header h1 { font-size: 22px; }
+            .section { padding: 16px; }
+            .chart { font-size: 11px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <h1>📰 小新早报</h1>
+            <div class="meta">
+                2026年3月28日 星期五 | 第 67 期
+                <span class="badge">半导体情报总监</span>
+            </div>
+        </div>
+        
+        <!-- 个性化推荐 -->
+        <div class="profile">
+            <h3>👤 个性化推荐（基于Sean的关注）</h3>
+            <div class="profile-tags">
+                <span class="tag">存储芯片</span>
+                <span class="tag">功率器件</span>
+                <span class="tag">MCU</span>
+                <span class="tag">MLCC</span>
+                <span class="tag">兆易创新</span>
+                <span class="tag">韦尔股份</span>
+                <span class="tag">中芯国际</span>
+                <span class="tag">国产替代</span>
+            </div>
+        </div>
+        
+        <!-- T0 必读情报 -->
+        <div class="section t0">
+            <h2 class="section-title">🚨 T0 必读情报</h2>
+            
+            <div class="alert-card">
+                <h4>🔴 存储芯片：DDR4合约价跳涨 15%</h4>
+                <p>三星海力士减产+AI需求爆发，涨价周期启动。</p>
+                
+                <div class="chart">
+价格走势图（近6个月）
+45美元 ┤                                          ╭────╮
+40美元 ┤                              ╭────╮     │      │
+35美元 ┤              ╭────╮         │      │────╯      │
+30美元 ┤    ╭────╮    │      │────────╯                  │
+25美元 ┤────╯      │────╯                                 │
+       └──────────────────────────────────────────────────
+         10月    11月    12月    1月     2月     3月
+                </div>
+                
+                <div class="data-grid">
+                    <div class="data-item">
+                        <div class="value">+15%</div>
+                        <div class="label">DDR4涨幅</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="value">-20%</div>
+                        <div class="label">三星减产</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="value">+35%</div>
+                        <div class="label">AI需求增长</div>
+                    </div>
+                </div>
+                
+                <div class="action-box">
+                    <h5>🎯 行动建议</h5>
+                    <ul class="action-list">
+                        <li><span class="checkbox"></span> 立即通知有存储芯片需求的客户锁价</li>
+                        <li><span class="checkbox"></span> 建议囤货周期：Q2合约价谈判窗口期</li>
+                    </ul>
+                    <p style="margin-top:10px;font-size:12px;color:#666;">
+                        责任人：小芯专家 | 截止：下周一开盘前 | 优先级：P0
+                    </p>
+                </div>
+            </div>
+            
+            <div class="alert-card">
+                <h4>🔴 美国商务部：新增5家中国EDA企业实体清单</h4>
+                <p>Cadence/Synopsys授权受限，国产替代加速。</p>
+                
+                <table>
+                    <tr>
+                        <th>国产EDA</th>
+                        <th>替代能力</th>
+                        <th>建议</th>
+                    </tr>
+                    <tr>
+                        <td>华大九天</td>
+                        <td>95%</td>
+                        <td>⭐ 强烈推荐</td>
+                    </tr>
+                    <tr>
+                        <td>概伦电子</td>
+                        <td>85%</td>
+                        <td>⭐ 推荐</td>
+                    </tr>
+                    <tr>
+                        <td>广立微</td>
+                        <td>75%</td>
+                        <td>可选</td>
+                    </tr>
+                </table>
+                
+                <div class="action-box">
+                    <h5>🎯 行动建议</h5>
+                    <ul class="action-list">
+                        <li><span class="checkbox"></span> 更新国产替代数据库，增加EDA品类</li>
+                        <li><span class="checkbox"></span> 联系华大九天/概伦电子获取替代方案</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- T1 市场动态 -->
+        <div class="section t1">
+            <h2 class="section-title">📊 T1 市场动态</h2>
+            
+            <h4 style="margin-bottom:12px;">💹 A股半导体板块</h4>
+            <div class="data-grid">
+                <div class="data-item">
+                    <div class="value up">+2.34%</div>
+                    <div class="label">半导体指数</div>
+                </div>
+                <div class="data-item">
+                    <div class="value">328亿</div>
+                    <div class="label">成交额</div>
+                </div>
+                <div class="data-item">
+                    <div class="value up">+12.8亿</div>
+                    <div class="label">北向资金</div>
+                </div>
+            </div>
+            
+            <table>
+                <tr>
+                    <th>个股</th>
+                    <th>涨跌幅</th>
+                    <th>原因</th>
+                </tr>
+                <tr>
+                    <td>兆易创新</td>
+                    <td class="up">+5.67%</td>
+                    <td>存储芯片涨价利好</td>
+                </tr>
+                <tr>
+                    <td>韦尔股份</td>
+                    <td class="up">+4.23%</td>
+                    <td>Q4业绩超预期</td>
+                </tr>
+                <tr>
+                    <td>圣邦股份</td>
+                    <td class="up">+3.89%</td>
+                    <td>模拟芯片需求复苏</td>
+                </tr>
+                <tr>
+                    <td>中芯国际</td>
+                    <td class="down">-1.25%</td>
+                    <td>大额解禁短期抛压</td>
+                </tr>
+            </table>
+            
+            <h4 style="margin:20px 0 12px;">📦 供应链情报</h4>
+            <table>
+                <tr>
+                    <th>品类</th>
+                    <th>交期</th>
+                    <th>趋势</th>
+                    <th>建议</th>
+                </tr>
+                <tr>
+                    <td>英飞凌 IGBT</td>
+                    <td>30周</td>
+                    <td class="up">↑ 延长</td>
+                    <td>立即下单</td>
+                </tr>
+                <tr>
+                    <td>TI 电源管理</td>
+                    <td>28周</td>
+                    <td class="up">↑ 紧张</td>
+                    <td>评估国产替代</td>
+                </tr>
+                <tr>
+                    <td>ST MCU</td>
+                    <td>20周</td>
+                    <td class="down">↓ 缓解</td>
+                    <td>正常采购</td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- T2 参考资讯 -->
+        <div class="section t2">
+            <h2 class="section-title">📋 T2 参考资讯</h2>
+            
+            <h4 style="margin-bottom:12px;">🔬 技术前沿</h4>
+            <ul style="line-height:2;">
+                <li>中科院微电子所：突破3nm芯片封装技术，良品率95%</li>
+                <li>华为海思：发布昇腾910C AI芯片，算力提升40%</li>
+                <li>长江存储：Xtacking 3.0量产，性能提升50%</li>
+            </ul>
+            
+            <h4 style="margin:20px 0 12px;">🏭 原厂动态</h4>
+            <ul style="line-height:2;">
+                <li>艾华集团：铝电解电容扩产30%，Q2产能释放</li>
+                <li>芯洲科技：新一代DC-DC芯片，效率提升5%</li>
+                <li>润石科技：新增车规级模拟芯片产品线</li>
+            </ul>
+        </div>
+        
+        <!-- 今日行动清单 -->
+        <div class="task-section">
+            <h2 class="section-title">🎯 今日行动清单</h2>
+            
+            <div class="task-category">
+                <h4 class="urgent">🔴 紧急（今日必做）</h4>
+                <div class="task-item">
+                    <div class="task-num">1</div>
+                    <div class="task-content">
+                        <div class="task-title">小芯专家：通知存储芯片客户锁价</div>
+                        <div class="task-meta">目标：5家重点客户 | 截止：下周一开盘前</div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="task-num">2</div>
+                    <div class="task-content">
+                        <div class="task-title">小明管家：跟进美国实体清单影响评估</div>
+                        <div class="task-meta">目标：更新风险评估报告 | 截止：本周日前</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="task-category">
+                <h4 class="important">🟡 重要（本周完成）</h4>
+                <div class="task-item">
+                    <div class="task-num">3</div>
+                    <div class="task-content">
+                        <div class="task-title">小芯专家：更新国产替代数据库（EDA领域）</div>
+                        <div class="task-meta">新增：华大九天、概伦电子产品资料</div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="task-num">4</div>
+                    <div class="task-content">
+                        <div class="task-title">小股理财：评估存储涨价对持仓的影响</div>
+                        <div class="task-meta">关注：兆易创新、普冉股份、东芯股份</div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="task-num">5</div>
+                    <div class="task-content">
+                        <div class="task-title">小新新闻：跟进工信部发布会，提取关键政策</div>
+                        <div class="task-meta">重点关注：补贴政策、税收优惠、研发支持</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="task-category">
+                <h4 class="normal">🟢 关注（持续跟踪）</h4>
+                <div class="task-item">
+                    <div class="task-num">6</div>
+                    <div class="task-content">
+                        <div class="task-title">小芯专家：关注英飞凌IGBT交期变化</div>
+                        <div class="task-meta">每周更新交期数据，及时通知客户</div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="task-num">7</div>
+                    <div class="task-content">
+                        <div class="task-title">小新新闻：跟踪长江存储扩产进度</div>
+                        <div class="task-meta">关注产能释放对价格的影响</div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="task-num">8</div>
+                    <div class="task-content">
+                        <div class="task-title">小明管家：监控美国对华半导体政策变化</div>
+                        <div class="task-meta">建立政策预警机制</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 数据看板 -->
+        <div class="section">
+            <h2 class="section-title">📊 数据看板</h2>
+            <table>
+                <tr>
+                    <th>品类</th>
+                    <th>价格变动</th>
+                    <th>供需状况</th>
+                    <th>趋势</th>
+                    <th>建议</th>
+                </tr>
+                <tr>
+                    <td>存储芯片</td>
+                    <td class="up">+15%</td>
+                    <td>紧张</td>
+                    <td>↑ 上涨</td>
+                    <td>立即锁价</td>
+                </tr>
+                <tr>
+                    <td>功率器件</td>
+                    <td>0%</td>
+                    <td>平衡</td>
+                    <td>→ 持平</td>
+                    <td>正常采购</td>
+                </tr>
+                <tr>
+                    <td>MLCC</td>
+                    <td class="up">+3%</td>
+                    <td>偏紧</td>
+                    <td>↗ 缓涨</td>
+                    <td>适度备货</td>
+                </tr>
+                <tr>
+                    <td>MCU</td>
+                    <td class="down">-5%</td>
+                    <td>过剩</td>
+                    <td>↓ 下跌</td>
+                    <td>逢低买入</td>
+                </tr>
+                <tr>
+                    <td>IGBT</td>
+                    <td>0%</td>
+                    <td>紧张</td>
+                    <td>→ 持平</td>
+                    <td>提前下单</td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- 页脚 -->
+        <div class="footer">
+            <p>📡 数据来源：集微网、东方财富、工信部、Bloomberg</p>
+            <p>免责声明：本早报仅供参考，不构成投资建议</p>
+            <p style="margin-top:10px;">🦞 小新新闻 - 你的半导体情报总监 | 情报驱动决策，数据创造价值</p>
+        </div>
+    </div>
+</body>
+</html>
