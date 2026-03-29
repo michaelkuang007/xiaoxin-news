@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>团队周复盘 - 2026年第13周</title>
+    <title>🧠 小明管家 W16 周复盘</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             min-height: 100vh;
-            padding: 10px;
+            padding: 20px;
         }
         .container {
             max-width: 800px;
@@ -27,246 +23,63 @@
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 30px 20px;
+            padding: 40px;
             text-align: center;
         }
-        .header h1 {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-        .header .subtitle {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-        .header .date-range {
-            font-size: 12px;
-            opacity: 0.8;
-            margin-top: 5px;
-        }
-        .content {
-            padding: 20px;
-        }
-        @media (min-width: 600px) {
-            .content {
-                padding: 40px;
-            }
-            .header {
-                padding: 40px;
-            }
-            .header h1 {
-                font-size: 32px;
-            }
-        }
-        .section {
-            margin-bottom: 30px;
-        }
+        .header h1 { font-size: 28px; margin-bottom: 10px; }
+        .header .subtitle { font-size: 16px; opacity: 0.9; }
+        .content { padding: 30px 40px; }
+        .section { margin-bottom: 30px; }
         .section-title {
             font-size: 18px;
             color: #333;
             margin-bottom: 15px;
-            padding-left: 12px;
+            padding-left: 15px;
             border-left: 4px solid #667eea;
-            font-weight: bold;
         }
-        
-        /* 核心数据 */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 25px;
-        }
-        @media (min-width: 600px) {
-            .stats-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 15px;
-            }
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
         }
         .stat-card {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             border-radius: 12px;
-            padding: 20px 15px;
+            padding: 20px;
             text-align: center;
         }
-        .stat-number {
-            font-size: 28px;
+        .stat-number { font-size: 28px; font-weight: bold; color: #667eea; }
+        .stat-label { font-size: 12px; color: #666; margin-top: 5px; }
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea10, #764ba210);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        .highlight-title {
+            font-size: 14px;
             font-weight: bold;
             color: #667eea;
+            margin-bottom: 8px;
         }
-        .stat-label {
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
-        }
-        .stat-change {
-            font-size: 11px;
-            color: #28a745;
-            margin-top: 3px;
-        }
-        
-        /* 成员榜 */
-        .member-list {
-            display: grid;
-            gap: 12px;
-        }
-        .member-item {
-            display: flex;
-            align-items: center;
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-        }
-        .member-rank {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 14px;
-            margin-right: 12px;
-            flex-shrink: 0;
-        }
-        .rank-1 { background: linear-gradient(135deg, #FFD700, #FFA500); color: white; }
-        .rank-2 { background: linear-gradient(135deg, #C0C0C0, #A0A0A0); color: white; }
-        .rank-3 { background: linear-gradient(135deg, #CD7F32, #B87333); color: white; }
-        .rank-other { background: #e9ecef; color: #666; }
-        .member-info {
-            flex: 1;
-            min-width: 0;
-        }
-        .member-name {
-            font-size: 15px;
-            font-weight: bold;
-            color: #333;
-        }
-        .member-tasks {
-            font-size: 12px;
-            color: #666;
-            margin-top: 3px;
-        }
-        .member-bar {
-            width: 80px;
-            height: 6px;
-            background: #e9ecef;
-            border-radius: 3px;
-            overflow: hidden;
-            margin-left: 10px;
-            flex-shrink: 0;
-        }
-        @media (min-width: 600px) {
-            .member-bar {
-                width: 150px;
-            }
-        }
-        .member-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 3px;
-        }
-        
-        /* 任务列表 */
-        .task-list {
-            display: grid;
-            gap: 10px;
-        }
+        .highlight-text { font-size: 14px; color: #666; line-height: 1.6; }
+        .task-list { display: grid; gap: 10px; }
         .task-item {
-            background: #f8f9fa;
-            border-radius: 10px;
-            border-left: 4px solid #28a745;
-            overflow: hidden;
-        }
-        .task-item.pending {
-            border-left-color: #ffc107;
-        }
-        .task-main {
             display: flex;
             align-items: center;
             padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 3px solid #28a745;
         }
-        .task-icon {
-            font-size: 18px;
-            margin-right: 12px;
-            flex-shrink: 0;
-        }
-        .task-content {
-            flex: 1;
-            min-width: 0;
-        }
-        .task-title {
-            font-size: 14px;
-            color: #333;
-            font-weight: 500;
-        }
-        .task-meta {
-            display: flex;
-            gap: 10px;
-            margin-top: 5px;
-            flex-wrap: wrap;
-        }
-        .task-tag {
-            font-size: 11px;
-            padding: 2px 8px;
-            border-radius: 10px;
-            background: #e9ecef;
-            color: #666;
-        }
-        .task-tag.urgent { background: #dc3545; color: white; }
-        .task-tag.important { background: #fd7e14; color: white; }
-        .task-tag.normal { background: #6c757d; color: white; }
-        .task-desc {
-            padding: 0 15px 12px 45px;
-            font-size: 12px;
-            color: #666;
-            line-height: 1.5;
-        }
-        
-        /* 优化建议 */
-        .highlight-box {
-            background: linear-gradient(135deg, #667eea15, #764ba215);
-            border-radius: 12px;
-            padding: 20px;
-        }
-        .highlight-title {
-            font-size: 15px;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 12px;
-        }
-        .suggestion-list {
-            list-style: none;
-        }
-        .suggestion-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 10px;
-            font-size: 13px;
-            color: #555;
-            line-height: 1.6;
-        }
-        .suggestion-item:last-child {
-            margin-bottom: 0;
-        }
-        .suggestion-num {
-            width: 20px;
-            height: 20px;
-            background: #667eea;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            margin-right: 10px;
-            flex-shrink: 0;
-        }
-        
+        .task-icon { margin-right: 10px; color: #28a745; }
+        .task-text { font-size: 14px; color: #333; }
         .footer {
             background: #f8f9fa;
-            padding: 15px 20px;
+            padding: 15px 40px;
             text-align: center;
-            color: #666;
+            color: #999;
             font-size: 12px;
         }
     </style>
@@ -274,301 +87,69 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>📊 团队周复盘</h1>
-            <div class="subtitle">2026年第13周</div>
-            <div class="date-range">2026/03/23 - 2026/03/29</div>
+            <h1>🧠 小明管家 W16 周复盘</h1>
+            <div class="subtitle">2026年3月 第16周</div>
         </div>
         
         <div class="content">
-            <!-- 核心数据 -->
             <div class="section">
-                <h2 class="section-title">📈 本周核心数据</h2>
+                <h2 class="section-title">📊 本周数据</h2>
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-number">22</div>
-                        <div class="stat-label">总任务数</div>
-                        <div class="stat-change">↑ 8 较上周</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">22</div>
-                        <div class="stat-label">已完成</div>
-                        <div class="stat-change">完成率 100%</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">5</div>
-                        <div class="stat-label">活跃成员</div>
-                        <div class="stat-change">全员参与</div>
-                    </div>
-                    <div class="stat-card">
                         <div class="stat-number">12</div>
-                        <div class="stat-label">文件创建</div>
-                        <div class="stat-change">知识库+8</div>
+                        <div class="stat-label">里程碑</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">35</div>
+                        <div class="stat-label">自动化执行</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">情报触发</div>
                     </div>
                 </div>
             </div>
 
-            <!-- 成员贡献榜 -->
             <div class="section">
-                <h2 class="section-title">🏆 成员贡献榜</h2>
-                <div class="member-list">
-                    <div class="member-item">
-                        <div class="member-rank rank-1">1</div>
-                        <div class="member-info">
-                            <div class="member-name">📋 小秘助理</div>
-                            <div class="member-tasks">完成 8 项任务 | 法律咨询+企业管理知识库</div>
-                        </div>
-                        <div class="member-bar">
-                            <div class="member-bar-fill" style="width: 100%"></div>
-                        </div>
-                    </div>
-                    <div class="member-item">
-                        <div class="member-rank rank-2">2</div>
-                        <div class="member-info">
-                            <div class="member-name">🔧 小芯专家</div>
-                            <div class="member-tasks">完成 5 项任务 | 芯片查询+建档+替代方案</div>
-                        </div>
-                        <div class="member-bar">
-                            <div class="member-bar-fill" style="width: 62%"></div>
-                        </div>
-                    </div>
-                    <div class="member-item">
-                        <div class="member-rank rank-3">3</div>
-                        <div class="member-info">
-                            <div class="member-name">🧠 小明管家</div>
-                            <div class="member-tasks">完成 4 项任务 | 系统配置+模板+自动化</div>
-                        </div>
-                        <div class="member-bar">
-                            <div class="member-bar-fill" style="width: 50%"></div>
-                        </div>
-                    </div>
-                    <div class="member-item">
-                        <div class="member-rank rank-other">4</div>
-                        <div class="member-info">
-                            <div class="member-name">📰 小新新闻</div>
-                            <div class="member-tasks">完成 3 项任务 | 早报+资讯推送</div>
-                        </div>
-                        <div class="member-bar">
-                            <div class="member-bar-fill" style="width: 37%"></div>
-                        </div>
-                    </div>
-                    <div class="member-item">
-                        <div class="member-rank rank-other">5</div>
-                        <div class="member-info">
-                            <div class="member-name">💬 沟通王子</div>
-                            <div class="member-tasks">完成 2 项任务 | 消息发送+沟通协助</div>
-                        </div>
-                        <div class="member-bar">
-                            <div class="member-bar-fill" style="width: 25%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 本周重点任务 -->
-            <div class="section">
-                <h2 class="section-title">✅ 本周重点任务（10项）</h2>
+                <h2 class="section-title">✅ 本周成果</h2>
                 <div class="task-list">
-                    <div class="task-item">
-                        <div class="task-main">
-                            <span class="task-icon">✓</span>
-                            <div class="task-content">
-                                <div class="task-title">小秘助理：法律咨询知识库（4个文件）</div>
-                                <div class="task-meta">
-                                    <span class="task-tag important">重要</span>
-                                    <span class="task-tag">小秘助理</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task-desc">合同法律、劳动法律、公司经营法律、使用指南 - 半导体代理商专用法律知识库</div>
-                    </div>
-                    <div class="task-item">
-                        <div class="task-main">
-                            <span class="task-icon">✓</span>
-                            <div class="task-content">
-                                <div class="task-title">小秘助理：企业管理咨询模块（4个文件）</div>
-                                <div class="task-meta">
-                                    <span class="task-tag important">重要</span>
-                                    <span class="task-tag">小秘助理</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task-desc">运营手册、决策支持框架、会议管理工具、效率工具推荐 - 代理商运营全流程指导</div>
-                    </div>
-                    <div class="task-item">
-                        <div class="task-main">
-                            <span class="task-icon">✓</span>
-                            <div class="task-content">
-                                <div class="task-title">VBE2305规格书检索并建档</div>
-                                <div class="task-meta">
-                                    <span class="task-tag important">重要</span>
-                                    <span class="task-tag">小芯专家</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task-desc">完成VBE2305芯片规格书检索，保存至小芯专家数据库，建立国产替代档案</div>
-                    </div>
-                    <div class="task-item">
-                        <div class="task-main">
-                            <span class="task-icon">✓</span>
-                            <div class="task-content">
-                                <div class="task-title">APL90A112LH063产品查询及替代推荐</div>
-                                <div class="task-meta">
-                                    <span class="task-tag urgent">紧急</span>
-                                    <span class="task-tag">小芯专家</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task-desc">识别KEMET铝电解电容型号，提供国产替代方案（艾华集团等）</div>
-                    </div>
-                    <div class="task-item">
-                        <div class="task-main">
-                            <span class="task-icon">✓</span>
-                            <div class="task-content">
-                                <div class="task-title">团队周复盘格式升级</div>
-                                <div class="task-meta">
-                                    <span class="task-tag important">重要</span>
-                                    <span class="task-tag">小明管家</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task-desc">从纯文字升级为图文卡片版，支持点击跳转详情页，提升阅读体验</div>
-                    </div>
-                    <div class="task-item">
-                        <div class="task-main">
-                            <span class="task-icon">✓</span>
-                            <div class="task-content">
-                                <div class="task-title">企业微信语音发送方案测试</div>
-                                <div class="task-meta">
-                                    <span class="task-tag">测试</span>
-                                    <span class="task-tag">小明管家</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task-desc">通过macOS say命令+upload_media接口，实现AIFF语音文件发送</div>
-                    </div>
-                    <div class="task-item">
-                        <div class="task-main">
-                            <span class="task-icon">✓</span>
-                            <div class="task-content">
-                                <div class="task-title">品牌型号目录收集任务配置</div>
-                                <div class="task-meta">
-                                    <span class="task-tag">系统</span>
-                                    <span class="task-tag">小明管家</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task-desc">配置每周三09:00自动执行品牌型号目录收集，建立国产替代数据库</div>
-                    </div>
-                    <div class="task-item">
-                        <div class="task-main">
-                            <span class="task-icon">✓</span>
-                            <div class="task-content">
-                                <div class="task-title">小新新闻早报推送</div>
-                                <div class="task-meta">
-                                    <span class="task-tag">常规</span>
-                                    <span class="task-tag">小新新闻</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task-desc">每日早报V5.0图文卡片版推送，包含T0情报、A股行情、供应链预警</div>
-                    </div>
-                    <div class="task-item">
-                        <div class="task-main">
-                            <span class="task-icon">✓</span>
-                            <div class="task-content">
-                                <div class="task-title">小股理财股市分析</div>
-                                <div class="task-meta">
-                                    <span class="task-tag">常规</span>
-                                    <span class="task-tag">小股理财</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task-desc">明日股市预测分析，半导体板块跟踪，投资机会推送</div>
-                    </div>
-                    <div class="task-item">
-                        <div class="task-main">
-                            <span class="task-icon">✓</span>
-                            <div class="task-content">
-                                <div class="task-title">沟通王子消息协助</div>
-                                <div class="task-meta">
-                                    <span class="task-tag">协助</span>
-                                    <span class="task-tag">沟通王子</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task-desc">企业微信消息发送协助，语音消息测试支持</div>
-                    </div>
+                    <div class="task-item"><span class="task-icon">✓</span><span class="task-text">早报V5.0上线 - 图文卡片版获认可</span></div>
+                    <div class="task-item"><span class="task-icon">✓</span><span class="task-text">品牌速递启动 - 每日13:30自动推送</span></div>
+                    <div class="task-item"><span class="task-icon">✓</span><span class="task-text">小股三维体系完成 - 模拟操盘待3/31启动</span></div>
+                    <div class="task-item"><span class="task-icon">✓</span><span class="task-text">周复盘SOP建立 - 7步标准流程</span></div>
                 </div>
             </div>
 
-            <!-- 下周计划 -->
             <div class="section">
-                <h2 class="section-title">📅 下周计划（3项）</h2>
-                <div class="task-list">
-                    <div class="task-item pending">
-                        <div class="task-main">
-                            <span class="task-icon">○</span>
-                            <div class="task-content">
-                                <div class="task-title">品牌型号目录持续收集</div>
-                                <div class="task-meta">
-                                    <span class="task-tag normal">常规</span>
-                                    <span class="task-tag">每周三</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task-desc">周三09:00自动执行，补充MLCC、MOSFET、DC-DC等品类型号</div>
-                    </div>
-                    <div class="task-item pending">
-                        <div class="task-main">
-                            <span class="task-icon">○</span>
-                            <div class="task-content">
-                                <div class="task-title">芯片数据库完善</div>
-                                <div class="task-meta">
-                                    <span class="task-tag important">重要</span>
-                                    <span class="task-tag">小芯专家</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task-desc">补充规格书PDF链接、增加搜索标签、优化查询效率</div>
-                    </div>
-                    <div class="task-item pending">
-                        <div class="task-main">
-                            <span class="task-icon">○</span>
-                            <div class="task-content">
-                                <div class="task-title">周复盘自动化任务监控</div>
-                                <div class="task-meta">
-                                    <span class="task-tag">系统</span>
-                                    <span class="task-tag">小明管家</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task-desc">验证每周五18:00自动发送功能，确保图文卡片正常推送</div>
+                <h2 class="section-title">⚠️ 待改进</h2>
+                <div class="highlight-box">
+                    <div class="highlight-title">问题清单</div>
+                    <div class="highlight-text">
+                        1. 早报双轨机制缺失<br>
+                        2. 小芯↔小股协作链路未建立<br>
+                        3. 周复盘重复执行（已修复）
                     </div>
                 </div>
             </div>
 
-            <!-- 优化建议 -->
-            <div class="highlight-box">
-                <div class="highlight-title">💡 优化建议</div>
-                <ul class="suggestion-list">
-                    <li class="suggestion-item">
-                        <span class="suggestion-num">1</span>
-                        <span>小芯专家数据库建议增加搜索标签功能，支持按品牌、品类、参数快速筛选</span>
-                    </li>
-                    <li class="suggestion-item">
-                        <span class="suggestion-num">2</span>
-                        <span>品牌目录收集可增加价格趋势追踪模块，监控国产替代型号价格波动</span>
-                    </li>
-                    <li class="suggestion-item">
-                        <span class="suggestion-num">3</span>
-                        <span>建议建立缺货预警自动化监控机制，提前3个月预警潜在缺货风险</span>
-                    </li>
-                </ul>
+            <div class="section">
+                <h2 class="section-title">📋 复盘问卷</h2>
+                <div class="highlight-box">
+                    <div class="highlight-title">请回复数字作答（如：1 2 3）</div>
+                    <div class="highlight-text">
+                        <strong>Q1 本周最满意的工作：</strong><br>
+                        1️⃣ 早报V5.0上线 &nbsp; 2️⃣ 品牌速递 &nbsp; 3️⃣ 小股三维体系<br><br>
+                        <strong>Q2 本周最不满意的工作：</strong><br>
+                        1️⃣ 复盘重复推送 &nbsp; 2️⃣ 早报双轨缺失 &nbsp; 3️⃣ 其他<br><br>
+                        <strong>Q3 下周最希望强化：</strong><br>
+                        1️⃣ 情报→行动速度 &nbsp; 2️⃣ 推送形式优化 &nbsp; 3️⃣ 跨成员协作
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="footer">
-            📌 发送时间：2026-03-29 00:15 | 🤖 发送人：小明管家 | 🦞 龙虾团队出品
+            🤖 发送人：小明管家 | 🦞 龙虾团队 | 2026-03-29
         </div>
     </div>
 </body>
