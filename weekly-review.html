@@ -6,150 +6,125 @@
     <title>🧠 小明管家 W16 周复盘</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
-        .header h1 { font-size: 28px; margin-bottom: 10px; }
-        .header .subtitle { font-size: 16px; opacity: 0.9; }
-        .content { padding: 30px 40px; }
-        .section { margin-bottom: 30px; }
-        .section-title {
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 15px;
-            padding-left: 15px;
-            border-left: 4px solid #667eea;
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        .stat-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-        }
-        .stat-number { font-size: 28px; font-weight: bold; color: #667eea; }
-        .stat-label { font-size: 12px; color: #666; margin-top: 5px; }
-        .highlight-box {
-            background: linear-gradient(135deg, #667eea10, #764ba210);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 15px;
-        }
-        .highlight-title {
-            font-size: 14px;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 8px;
-        }
-        .highlight-text { font-size: 14px; color: #666; line-height: 1.6; }
-        .task-list { display: grid; gap: 10px; }
-        .task-item {
-            display: flex;
-            align-items: center;
-            padding: 12px 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 3px solid #28a745;
-        }
-        .task-icon { margin-right: 10px; color: #28a745; }
-        .task-text { font-size: 14px; color: #333; }
-        .footer {
-            background: #f8f9fa;
-            padding: 15px 40px;
-            text-align: center;
-            color: #999;
-            font-size: 12px;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 35px 40px; text-align: center; }
+        .header h1 { font-size: 26px; margin-bottom: 8px; }
+        .header .subtitle { font-size: 14px; opacity: 0.9; }
+        .content { padding: 25px 35px; }
+        .section { margin-bottom: 25px; }
+        .section-title { font-size: 16px; color: #333; margin-bottom: 12px; padding-left: 12px; border-left: 4px solid #667eea; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+        .stat-card { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 10px; padding: 15px; text-align: center; }
+        .stat-number { font-size: 24px; font-weight: bold; color: #667eea; }
+        .stat-label { font-size: 11px; color: #666; margin-top: 4px; }
+        
+        .member-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 15px; }
+        .member-card { background: #f8f9fa; border-radius: 10px; padding: 12px; border-left: 3px solid #667eea; }
+        .member-name { font-size: 14px; font-weight: bold; color: #333; margin-bottom: 4px; }
+        .member-tasks { font-size: 12px; color: #666; }
+        
+        .highlight-box { background: linear-gradient(135deg, #667eea10, #764ba210); border-radius: 10px; padding: 15px; margin-bottom: 12px; }
+        .highlight-title { font-size: 13px; font-weight: bold; color: #667eea; margin-bottom: 6px; }
+        .highlight-text { font-size: 12px; color: #666; line-height: 1.6; }
+        
+        .task-list { display: grid; gap: 8px; }
+        .task-item { display: flex; align-items: flex-start; padding: 10px 12px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #28a745; }
+        .task-icon { margin-right: 8px; color: #28a745; font-size: 14px; }
+        .task-text { font-size: 12px; color: #333; line-height: 1.5; }
+        
+        .problem-item { border-left-color: #dc3545; }
+        .problem-item .task-icon { color: #dc3545; }
+        
+        .methodology-item { border-left-color: #17a2b8; }
+        .methodology-item .task-icon { color: #17a2b8; }
+        
+        .footer { background: #f8f9fa; padding: 12px 35px; text-align: center; color: #999; font-size: 11px; }
+        
+        .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; margin-right: 4px; }
+        .tag-p0 { background: #dc3545; color: white; }
+        .tag-p1 { background: #ffc107; color: #333; }
+        .tag-done { background: #28a745; color: white; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1>🧠 小明管家 W16 周复盘</h1>
-            <div class="subtitle">2026年3月 第16周</div>
+            <div class="subtitle">2026年3月 第16周 | 2026-03-29</div>
         </div>
         
         <div class="content">
+            <!-- 核心数据 -->
             <div class="section">
-                <h2 class="section-title">📊 本周数据</h2>
+                <h2 class="section-title">📊 核心数据</h2>
                 <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">12</div>
-                        <div class="stat-label">里程碑</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">35</div>
-                        <div class="stat-label">自动化执行</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">2</div>
-                        <div class="stat-label">情报触发</div>
-                    </div>
+                    <div class="stat-card"><div class="stat-number">12</div><div class="stat-label">里程碑</div></div>
+                    <div class="stat-card"><div class="stat-number">35</div><div class="stat-label">自动化执行</div></div>
+                    <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">情报触发</div></div>
+                    <div class="stat-card"><div class="stat-number">4</div><div class="stat-label">AI突破</div></div>
                 </div>
             </div>
 
+            <!-- 各成员产出 -->
             <div class="section">
-                <h2 class="section-title">✅ 本周成果</h2>
+                <h2 class="section-title">👥 各成员产出</h2>
+                <div class="member-grid">
+                    <div class="member-card"><div class="member-name">🧠 小明管家</div><div class="member-tasks">方法论沉淀、周复盘SOP、防重复机制</div></div>
+                    <div class="member-card"><div class="member-name">💰 小芯专家</div><div class="member-tasks">芯片库5200+型号、评估体系</div></div>
+                    <div class="member-card"><div class="member-name">💰 小股理财</div><div class="member-tasks">三维分析体系、待3/31启动模拟操盘</div></div>
+                    <div class="member-card"><div class="member-name">💰📡 小新新闻</div><div class="member-tasks">早报V5.0、品牌速递（英飞凌/艾华）</div></div>
+                    <div class="member-card"><div class="member-name">🎭 沟通小王子</div><div class="member-tasks">m2/m3/m4里程碑完成</div></div>
+                    <div class="member-card"><div class="member-name">📋 小秘助理</div><div class="member-tasks">m2/m3里程碑完成</div></div>
+                </div>
+            </div>
+
+            <!-- 本周亮点 -->
+            <div class="section">
+                <h2 class="section-title">✨ 本周亮点</h2>
                 <div class="task-list">
-                    <div class="task-item"><span class="task-icon">✓</span><span class="task-text">早报V5.0上线 - 图文卡片版获认可</span></div>
-                    <div class="task-item"><span class="task-icon">✓</span><span class="task-text">品牌速递启动 - 每日13:30自动推送</span></div>
-                    <div class="task-item"><span class="task-icon">✓</span><span class="task-text">小股三维体系完成 - 模拟操盘待3/31启动</span></div>
-                    <div class="task-item"><span class="task-icon">✓</span><span class="task-text">周复盘SOP建立 - 7步标准流程</span></div>
+                    <div class="task-item"><span class="task-icon">✓</span><span class="task-text"><strong>早报V5.0上线</strong> - 图文卡片版获认可，迭代5轮</span></div>
+                    <div class="task-item"><span class="task-icon">✓</span><span class="task-text"><strong>品牌速递启动</strong> - 每日13:30自动推送，已推英飞凌、艾华</span></div>
+                    <div class="task-item"><span class="task-icon">✓</span><span class="task-text"><strong>Skill发现</strong> - macro-monitor、earnings-tracker ⭐⭐⭐⭐待安装</span></div>
+                    <div class="task-item"><span class="task-icon">✓</span><span class="task-text"><strong>AI突破追踪</strong> - TurboQuant/DDR涨价50%/GTC 2026/中国Token超美国</span></div>
                 </div>
             </div>
 
+            <!-- 本周问题 -->
             <div class="section">
-                <h2 class="section-title">⚠️ 待改进</h2>
-                <div class="highlight-box">
-                    <div class="highlight-title">问题清单</div>
-                    <div class="highlight-text">
-                        1. 早报双轨机制缺失<br>
-                        2. 小芯↔小股协作链路未建立<br>
-                        3. 周复盘重复执行（已修复）
-                    </div>
+                <h2 class="section-title">⚠️ 本周问题</h2>
+                <div class="task-list">
+                    <div class="task-item problem-item"><span class="task-icon">!</span><span class="task-text"><strong>周复盘重复执行</strong> - automation-14每小时触发导致重复13次，已修复</span></div>
+                    <div class="task-item problem-item"><span class="task-icon">!</span><span class="task-text"><strong>早报双轨机制缺失</strong> - 图文卡片无法被automation-14扫描</span></div>
+                    <div class="task-item problem-item"><span class="task-icon">!</span><span class="task-text"><strong>小芯↔小股协作未建立</strong> - 双向数据交换链路待实施</span></div>
                 </div>
             </div>
 
+            <!-- 方法论沉淀 -->
             <div class="section">
-                <h2 class="section-title">📋 复盘问卷</h2>
-                <div class="highlight-box">
-                    <div class="highlight-title">请回复数字作答（如：1 2 3）</div>
-                    <div class="highlight-text">
-                        <strong>Q1 本周最满意的工作：</strong><br>
-                        1️⃣ 早报V5.0上线 &nbsp; 2️⃣ 品牌速递 &nbsp; 3️⃣ 小股三维体系<br><br>
-                        <strong>Q2 本周最不满意的工作：</strong><br>
-                        1️⃣ 复盘重复推送 &nbsp; 2️⃣ 早报双轨缺失 &nbsp; 3️⃣ 其他<br><br>
-                        <strong>Q3 下周最希望强化：</strong><br>
-                        1️⃣ 情报→行动速度 &nbsp; 2️⃣ 推送形式优化 &nbsp; 3️⃣ 跨成员协作
-                    </div>
+                <h2 class="section-title">📚 方法论沉淀</h2>
+                <div class="task-list">
+                    <div class="task-item methodology-item"><span class="task-icon">◆</span><span class="task-text"><strong>任务频率设计</strong> - 周复盘应设为WEEKLY非HOURLY，避免重复执行</span></div>
+                    <div class="task-item methodology-item"><span class="task-icon">◆</span><span class="task-text"><strong>功能兼容性设计</strong> - 新功能需评估对现有功能影响，建立双轨运行</span></div>
+                    <div class="task-item methodology-item"><span class="task-icon">◆</span><span class="task-text"><strong>跨成员知识迁移</strong> - 识别→设计链路→建立交换机制</span></div>
+                </div>
+            </div>
+
+            <!-- 下周重点 -->
+            <div class="section">
+                <h2 class="section-title">📅 下周重点</h2>
+                <div class="task-list">
+                    <div class="task-item"><span class="task-icon">🔴</span><span class="task-text"><span class="tag tag-p0">P0</span> 早报双轨机制恢复</span></div>
+                    <div class="task-item"><span class="task-icon">🔴</span><span class="task-text"><span class="tag tag-p0">P0</span> 小股模拟操盘启动（3/31）</span></div>
+                    <div class="task-item"><span class="task-icon">🟡</span><span class="task-text"><span class="tag tag-p1">P1</span> 小芯数据导出机制</span></div>
+                    <div class="task-item"><span class="task-icon">🟡</span><span class="task-text"><span class="tag tag-p1">P1</span> Skill安装（macro-monitor/earnings-tracker）</span></div>
                 </div>
             </div>
         </div>
 
         <div class="footer">
-            🤖 发送人：小明管家 | 🦞 龙虾团队 | 2026-03-29
+            🤖 发送人：小明管家 | 🦞 龙虾团队 | 详情页点击底部问卷链接回复
         </div>
     </div>
 </body>
