@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔬 每日芯片品牌速递 - 芯洲科技 (Chipown)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        
+        .header {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .header h1 { font-size: 24px; color: #333; margin-bottom: 10px; }
+        .header .meta { color: #666; font-size: 14px; }
+        
+        .section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* 品牌概览表格 */
+        .overview-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .overview-table th, .overview-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .overview-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+            width: 30%;
+        }
+        
+        /* 产品线卡片 */
+        .products-grid {
+            display: grid;
+            gap: 16px;
+        }
+        .product-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 4px solid #667eea;
+        }
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .product-detail p {
+            font-size: 13px;
+            color: #666;
+            margin: 6px 0;
+            line-height: 1.5;
+        }
+        
+        /* 应用领域条形图 */
+        .app-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .app-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .app-label {
+            width: 100px;
+            font-size: 13px;
+            color: #333;
+            flex-shrink: 0;
+        }
+        .app-progress {
+            flex: 1;
+            height: 24px;
+            background: #f0f0f0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .app-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            transition: width 0.5s ease;
+        }
+        .app-percent {
+            width: 50px;
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 600;
+            text-align: right;
+        }
+        
+        /* 客户群体 */
+        .customers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .customer-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px;
+        }
+        .customer-type {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+        }
+        .customer-names {
+            font-size: 13px;
+            color: #667eea;
+            margin-bottom: 4px;
+        }
+        .customer-products {
+            font-size: 12px;
+            color: #888;
+        }
+        
+        /* 趋势分析 */
+        .trends-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .trend-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .trend-dot {
+            color: #667eea;
+            font-size: 20px;
+            line-height: 1;
+        }
+        .trend-content {
+            flex: 1;
+        }
+        .trend-content strong {
+            font-size: 14px;
+            color: #333;
+        }
+        .trend-content p {
+            font-size: 13px;
+            color: #666;
+            margin-top: 4px;
+            line-height: 1.6;
+        }
+        
+        /* 机会点 */
+        .opportunities-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .opportunity-item {
+            background: linear-gradient(135deg, #fff9f0 0%, #fff5e6 100%);
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 4px solid #ffa502;
+        }
+        .opp-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .opp-suggestion {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* 评分 */
+        .rating-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .rating-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+        }
+        .rating-label {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .rating-stars {
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+        
+        /* 综合建议 */
+        .recommendation-box {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+        .rec-level {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .rec-reason {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+        .rec-action {
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 500;
+        }
+        
+        /* 关键词标签 */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag {
+            display: inline-block;
+            background: #f0f4ff;
+            color: #667eea;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+        
+        .footer {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            padding: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔬 每日芯片品牌速递</h1>
+            <div class="meta">2026年03月30日 | 品牌：芯洲科技 (Chipown)</div>
+        </div>
+        
+        <!-- 品牌概览 -->
+        <div class="section">
+            <h2>📋 品牌概览</h2>
+            <table class="overview-table">
+                <tr><th>品牌名称</th><td>芯洲科技 (Chipown)</td></tr>
+                <tr><th>总部所在地</th><td>中国</td></tr>
+                <tr><th>成立时间</th><td>2012年</td></tr>
+                <tr><th>年营业额</th><td>未上市</td></tr>
+                <tr><th>员工人数</th><td>约500</td></tr>
+                <tr><th>上市情况</th><td>未上市</td></tr>
+                <tr><th>主要产品</th><td>DC-DC/电源管理</td></tr>
+            </table>
+        </div>
+        
+        <!-- 关键词 -->
+        <div class="section">
+            <h2>🏷️ 核心关键词</h2>
+            <div class="tags-container">
+                <span class="tag">DC-DC</span><span class="tag">国产替代</span><span class="tag">车规级</span><span class="tag">工业级</span>
+            </div>
+        </div>
+        
+        <!-- 核心产品线 -->
+        <div class="section">
+            <h2>🏆 核心产品线</h2>
+            <div class="products-grid">
+        <div class="product-card">
+            <div class="product-name">🏆 高压Buck转换器</div>
+            <div class="product-detail">
+                <p><strong>代表型号：</strong>AP8851、AP8852、AP8853系列</p>
+                <p><strong>技术特点：</strong>输入电压高达100V，工业级可靠性，替代TI/ADI</p>
+                <p><strong>市场份额：</strong>国内高压DC-DC细分市场领先</p>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-name">🏆 车规级DC-DC</div>
+            <div class="product-detail">
+                <p><strong>代表型号：</strong>AP6100、AP6200系列</p>
+                <p><strong>技术特点：</strong>AEC-Q100认证，功能安全支持，车身电子应用</p>
+                <p><strong>市场份额：</strong>国产车规DC-DC前三</p>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-name">🏆 多相控制器</div>
+            <div class="product-detail">
+                <p><strong>代表型号：</strong>AP2800系列</p>
+                <p><strong>技术特点：</strong>大电流输出、高效率、服务器/通信应用</p>
+                <p><strong>市场份额：</strong>国产多相控制器领先</p>
+            </div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 应用领域分布 -->
+        <div class="section">
+            <h2>📊 应用领域分布</h2>
+            <div class="app-bars">
+        <div class="app-bar">
+            <div class="app-label">工业控制</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 28.0%"></div>
+            </div>
+            <div class="app-percent">35%</div>
+        </div>
+        
+        <div class="app-bar">
+            <div class="app-label">汽车电子</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 20.0%"></div>
+            </div>
+            <div class="app-percent">25%</div>
+        </div>
+        
+        <div class="app-bar">
+            <div class="app-label">通信设备</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 16.0%"></div>
+            </div>
+            <div class="app-percent">20%</div>
+        </div>
+        
+        <div class="app-bar">
+            <div class="app-label">消费电子</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 12.0%"></div>
+            </div>
+            <div class="app-percent">15%</div>
+        </div>
+        
+        <div class="app-bar">
+            <div class="app-label">医疗电子</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 4.0%"></div>
+            </div>
+            <div class="app-percent">5%</div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 核心客户群体 -->
+        <div class="section">
+            <h2>👥 核心客户群体</h2>
+            <div class="customers-list">
+        <div class="customer-item">
+            <div class="customer-type">工业客户</div>
+            <div class="customer-names">汇川技术、英威腾、雷赛智能</div>
+            <div class="customer-products">应用：工业电源模块、电机驱动电源</div>
+        </div>
+        
+        <div class="customer-item">
+            <div class="customer-type">汽车客户</div>
+            <div class="customer-names">比亚迪、蔚来、小鹏、理想</div>
+            <div class="customer-products">应用：车身电子电源、BMS电源</div>
+        </div>
+        
+        <div class="customer-item">
+            <div class="customer-type">通信客户</div>
+            <div class="customer-names">华为、中兴、烽火通信</div>
+            <div class="customer-products">应用：通信设备电源、基站电源</div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 行业趋势 -->
+        <div class="section">
+            <h2>📈 行业趋势分析</h2>
+            <div class="trends-list">
+        <div class="trend-item">
+            <div class="trend-dot">●</div>
+            <div class="trend-content">
+                <strong>车规级产品放量</strong>
+                <p>新能源汽车带动车规电源需求，芯洲车规产品已进入多家头部车企供应链</p>
+            </div>
+        </div>
+        
+        <div class="trend-item">
+            <div class="trend-dot">●</div>
+            <div class="trend-content">
+                <strong>工业自动化国产替代</strong>
+                <p>工业控制领域国产替代加速，芯洲高压DC-DC在汇川、英威腾等客户份额提升</p>
+            </div>
+        </div>
+        
+        <div class="trend-item">
+            <div class="trend-dot">●</div>
+            <div class="trend-content">
+                <strong>IPO筹备中</strong>
+                <p>芯洲科技计划科创板上市，资金实力将增强，产品线扩展加速</p>
+            </div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 机会点评估 -->
+        <div class="section">
+            <h2>💡 机会点评估</h2>
+            <div class="opportunities-list">
+        <div class="opportunity-item">
+            <div class="opp-title">💡 车规级电源替代</div>
+            <div class="opp-suggestion">建议：TI、ADI车规电源缺货且贵，芯洲是优质替代选择，重点推给汽车电子客户</div>
+        </div>
+        
+        <div class="opportunity-item">
+            <div class="opp-title">💡 工业客户渗透</div>
+            <div class="opp-suggestion">建议：汇川等工业龙头国产替代意愿强，芯洲产品性价比高，可深度合作</div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 综合评分 -->
+        <div class="section">
+            <h2>⭐ 综合评估</h2>
+            <div class="rating-grid">
+        <div class="rating-item">
+            <div class="rating-label">产品竞争力</div>
+            <div class="rating-stars">⭐⭐⭐⭐☆</div>
+        </div>
+        
+        <div class="rating-item">
+            <div class="rating-label">市场空间</div>
+            <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        
+        <div class="rating-item">
+            <div class="rating-label">渠道政策</div>
+            <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        
+        <div class="rating-item">
+            <div class="rating-label">国产替代契合度</div>
+            <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 关注建议 -->
+        <div class="section">
+            <h2>🎯 是否值得大力关注？</h2>
+            <div class="recommendation-box">
+                <div class="rec-level">强烈推荐合作</div>
+                <div class="rec-reason">国内DC-DC领域技术领先，车规级产品已量产，是TI/ADI的优质替代。与Sean已有合作关系，是核心原厂资源。</div>
+                <div class="rec-action">📌 下一步行动：重点拓展汽车电子和工业客户，推动芯洲产品替代进口；关注其IPO进展，提前锁定代理权</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>🦞 小芯专家 - 每日芯片品牌速递</p>
+            <p>每天了解一家原厂，发现机会点</p>
+        </div>
+    </div>
+</body>
+</html>
