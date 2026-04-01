@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔬 每日芯片品牌速递 - 兆易创新 (GigaDevice)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        
+        .header {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .header h1 { font-size: 24px; color: #333; margin-bottom: 10px; }
+        .header .meta { color: #666; font-size: 14px; }
+        
+        .section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* 品牌概览表格 */
+        .overview-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .overview-table th, .overview-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .overview-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+            width: 30%;
+        }
+        
+        /* 产品线卡片 */
+        .products-grid {
+            display: grid;
+            gap: 16px;
+        }
+        .product-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 4px solid #667eea;
+        }
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .product-detail p {
+            font-size: 13px;
+            color: #666;
+            margin: 6px 0;
+            line-height: 1.5;
+        }
+        
+        /* 应用领域条形图 */
+        .app-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .app-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .app-label {
+            width: 100px;
+            font-size: 13px;
+            color: #333;
+            flex-shrink: 0;
+        }
+        .app-progress {
+            flex: 1;
+            height: 24px;
+            background: #f0f0f0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .app-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            transition: width 0.5s ease;
+        }
+        .app-percent {
+            width: 50px;
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 600;
+            text-align: right;
+        }
+        
+        /* 客户群体 */
+        .customers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .customer-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px;
+        }
+        .customer-type {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+        }
+        .customer-names {
+            font-size: 13px;
+            color: #667eea;
+            margin-bottom: 4px;
+        }
+        .customer-products {
+            font-size: 12px;
+            color: #888;
+        }
+        
+        /* 趋势分析 */
+        .trends-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .trend-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .trend-dot {
+            color: #667eea;
+            font-size: 20px;
+            line-height: 1;
+        }
+        .trend-content {
+            flex: 1;
+        }
+        .trend-content strong {
+            font-size: 14px;
+            color: #333;
+        }
+        .trend-content p {
+            font-size: 13px;
+            color: #666;
+            margin-top: 4px;
+            line-height: 1.6;
+        }
+        
+        /* 机会点 */
+        .opportunities-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .opportunity-item {
+            background: linear-gradient(135deg, #fff9f0 0%, #fff5e6 100%);
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 4px solid #ffa502;
+        }
+        .opp-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .opp-suggestion {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* 评分 */
+        .rating-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .rating-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+        }
+        .rating-label {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .rating-stars {
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+        
+        /* 综合建议 */
+        .recommendation-box {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+        .rec-level {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .rec-reason {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+        .rec-action {
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 500;
+        }
+        
+        /* 关键词标签 */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag {
+            display: inline-block;
+            background: #f0f4ff;
+            color: #667eea;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+        
+        .footer {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            padding: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔬 每日芯片品牌速递</h1>
+            <div class="meta">2026年04月01日 | 品牌：兆易创新 (GigaDevice)</div>
+        </div>
+        
+        <!-- 品牌概览 -->
+        <div class="section">
+            <h2>📋 品牌概览</h2>
+            <table class="overview-table">
+                <tr><th>品牌名称</th><td>兆易创新 (GigaDevice)</td></tr>
+                <tr><th>总部所在地</th><td>中国</td></tr>
+                <tr><th>成立时间</th><td>2005年</td></tr>
+                <tr><th>年营业额</th><td>约70亿人民币 (2024)</td></tr>
+                <tr><th>员工人数</th><td>约1,500</td></tr>
+                <tr><th>上市情况</th><td>上交所: 603986</td></tr>
+                <tr><th>主要产品</th><td>存储芯片/MCU</td></tr>
+            </table>
+        </div>
+        
+        <!-- 关键词 -->
+        <div class="section">
+            <h2>🏷️ 核心关键词</h2>
+            <div class="tags-container">
+                <span class="tag">NOR Flash</span><span class="tag">MCU</span><span class="tag">存储芯片</span><span class="tag">国产替代</span>
+            </div>
+        </div>
+        
+        <!-- 核心产品线 -->
+        <div class="section">
+            <h2>🏆 核心产品线</h2>
+            <div class="products-grid">
+        <div class="product-card">
+            <div class="product-name">🏆 NOR Flash</div>
+            <div class="product-detail">
+                <p><strong>代表型号：</strong>GD25系列、GD55系列</p>
+                <p><strong>技术特点：</strong>高可靠性、宽温区、容量覆盖全，全球前三</p>
+                <p><strong>市场份额：</strong>全球NOR Flash约20%，国内第一</p>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-name">🏆 GD32 MCU</div>
+            <div class="product-detail">
+                <p><strong>代表型号：</strong>GD32F1/F3/F4/F7/GD32E5系列</p>
+                <p><strong>技术特点：</strong>pin-to-pin兼容STM32，性价比高，国产替代首选</p>
+                <p><strong>市场份额：</strong>国产32位MCU第一，全球约5%</p>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-name">🏆 DRAM</div>
+            <div class="product-detail">
+                <p><strong>代表型号：</strong>DDR3/DDR4/LPDDR4</p>
+                <p><strong>技术特点：</strong>与长鑫存储合作，布局利基型DRAM</p>
+                <p><strong>市场份额：</strong>利基型DRAM市场新进入者</p>
+            </div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 应用领域分布 -->
+        <div class="section">
+            <h2>📊 应用领域分布</h2>
+            <div class="app-bars">
+        <div class="app-bar">
+            <div class="app-label">消费电子</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 28.0%"></div>
+            </div>
+            <div class="app-percent">35%</div>
+        </div>
+        
+        <div class="app-bar">
+            <div class="app-label">工业控制</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 20.0%"></div>
+            </div>
+            <div class="app-percent">25%</div>
+        </div>
+        
+        <div class="app-bar">
+            <div class="app-label">汽车电子</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 12.0%"></div>
+            </div>
+            <div class="app-percent">15%</div>
+        </div>
+        
+        <div class="app-bar">
+            <div class="app-label">通信设备</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 12.0%"></div>
+            </div>
+            <div class="app-percent">15%</div>
+        </div>
+        
+        <div class="app-bar">
+            <div class="app-label">物联网</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 8.0%"></div>
+            </div>
+            <div class="app-percent">10%</div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 核心客户群体 -->
+        <div class="section">
+            <h2>👥 核心客户群体</h2>
+            <div class="customers-list">
+        <div class="customer-item">
+            <div class="customer-type">消费电子</div>
+            <div class="customer-names">华为、小米、OPPO、vivo</div>
+            <div class="customer-products">应用：NOR Flash、MCU</div>
+        </div>
+        
+        <div class="customer-item">
+            <div class="customer-type">工业客户</div>
+            <div class="customer-names">汇川、英威腾、大族激光</div>
+            <div class="customer-products">应用：GD32 MCU、NOR Flash</div>
+        </div>
+        
+        <div class="customer-item">
+            <div class="customer-type">汽车客户</div>
+            <div class="customer-names">比亚迪、蔚来、理想</div>
+            <div class="customer-products">应用：车规级NOR Flash、MCU</div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 行业趋势 -->
+        <div class="section">
+            <h2>📈 行业趋势分析</h2>
+            <div class="trends-list">
+        <div class="trend-item">
+            <div class="trend-dot">●</div>
+            <div class="trend-content">
+                <strong>STM32国产替代</strong>
+                <p>GD32是STM32的主要替代者，2024年MCU业务增长超30%</p>
+            </div>
+        </div>
+        
+        <div class="trend-item">
+            <div class="trend-dot">●</div>
+            <div class="trend-content">
+                <strong>NOR Flash市场回暖</strong>
+                <p>2024年消费电子复苏，NOR Flash价格和需求回升</p>
+            </div>
+        </div>
+        
+        <div class="trend-item">
+            <div class="trend-dot">●</div>
+            <div class="trend-content">
+                <strong>车规级产品突破</strong>
+                <p>GD32A系列车规MCU量产，进入比亚迪等车企供应链</p>
+            </div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 机会点评估 -->
+        <div class="section">
+            <h2>💡 机会点评估</h2>
+            <div class="opportunities-list">
+        <div class="opportunity-item">
+            <div class="opp-title">💡 STM32替代机会</div>
+            <div class="opp-suggestion">建议：GD32与STM32兼容性好，性价比高，是国产替代的首选，重点推广</div>
+        </div>
+        
+        <div class="opportunity-item">
+            <div class="opp-title">💡 车规级MCU</div>
+            <div class="opp-suggestion">建议：兆易车规MCU已量产，价格优势明显，可切入汽车电子客户</div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 综合评分 -->
+        <div class="section">
+            <h2>⭐ 综合评估</h2>
+            <div class="rating-grid">
+        <div class="rating-item">
+            <div class="rating-label">产品竞争力</div>
+            <div class="rating-stars">⭐⭐⭐⭐☆</div>
+        </div>
+        
+        <div class="rating-item">
+            <div class="rating-label">市场空间</div>
+            <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        
+        <div class="rating-item">
+            <div class="rating-label">渠道政策</div>
+            <div class="rating-stars">⭐⭐⭐⭐☆</div>
+        </div>
+        
+        <div class="rating-item">
+            <div class="rating-label">国产替代契合度</div>
+            <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 关注建议 -->
+        <div class="section">
+            <h2>🎯 是否值得大力关注？</h2>
+            <div class="recommendation-box">
+                <div class="rec-level">强烈推荐合作</div>
+                <div class="rec-reason">国内存储+MCU双龙头，GD32是STM32的最佳替代，国产替代核心标的。车规级产品突破，成长空间大。</div>
+                <div class="rec-action">📌 下一步行动：重点推广GD32 MCU替代STM32；关注车规级产品进展，切入汽车电子客户</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>🦞 小芯专家 - 每日芯片品牌速递</p>
+            <p>每天了解一家原厂，发现机会点</p>
+        </div>
+    </div>
+</body>
+</html>
