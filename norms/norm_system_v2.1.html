@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>规范体系 V2.1</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f7fa; color: #1a1a2e; line-height: 1.6; }
+.container { max-width: 800px; margin: 0 auto; padding: 20px; }
+.header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 16px; margin-bottom: 24px; text-align: center; }
+.header h1 { font-size: 28px; margin-bottom: 8px; }
+.header .version { font-size: 14px; opacity: 0.9; }
+.header .date { font-size: 13px; opacity: 0.8; margin-top: 4px; }
+
+.section { background: white; border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.section h2 { font-size: 18px; color: #667eea; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.section h2 .icon { font-size: 20px; }
+
+.arch-tree { background: #f8f9ff; border-radius: 8px; padding: 16px; font-family: "SF Mono", "Fira Code", monospace; font-size: 13px; line-height: 1.8; white-space: pre; overflow-x: auto; }
+
+.norm-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.norm-table th { background: #f0f2ff; padding: 10px 12px; text-align: left; font-weight: 600; color: #4a5568; border-bottom: 2px solid #667eea; }
+.norm-table td { padding: 10px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+.norm-table tr:last-child td { border-bottom: none; }
+.status { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 12px; font-weight: 500; }
+.status-active { background: #d4edda; color: #155724; }
+.status-new { background: #fff3cd; color: #856404; }
+
+.cat-header { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 12px 16px; border-radius: 8px; margin-bottom: 12px; font-size: 15px; font-weight: 600; }
+.cat-header.purple { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.cat-header.blue { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+.cat-header.green { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: #1a1a2e; }
+.cat-header.orange { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: #1a1a2e; }
+
+.core-box { background: #f0f4ff; border-left: 3px solid #667eea; padding: 12px 16px; margin-top: 8px; border-radius: 0 8px 8px 0; font-size: 13px; }
+.core-box ul { margin-left: 16px; }
+.core-box li { margin-bottom: 4px; }
+
+.version-history { font-size: 13px; }
+.version-history table { width: 100%; }
+.version-history td { padding: 6px 10px; font-size: 13px; }
+
+.rules-box { background: #fffbeb; border: 1px solid #fbbf24; border-radius: 8px; padding: 12px 16px; font-size: 13px; margin-top: 12px; }
+.rules-box strong { color: #92400e; }
+
+.footer { text-align: center; padding: 20px; font-size: 12px; color: #999; }
+
+.tag { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 11px; margin-left: 4px; background: #e8eaf6; color: #5c6bc0; }
+.tag.warn { background: #fce4ec; color: #c62828; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <h1>🦞 小明管家 · 规范体系</h1>
+  <div class="version">V2.1 — 12个规范文件</div>
+  <div class="date">更新日期：2026-04-06 ｜ 维护人：小明管家</div>
+</div>
+
+<!-- Architecture Tree -->
+<div class="section">
+  <h2><span class="icon">📚</span> 体系架构</h2>
+  <div class="arch-tree">小明管家规范体系 V2.1
+│
+├── 📤 推送与发布
+│   └── 推送规范 V1.0
+│
+├── ⚙️ 系统运维（4个）
+│   ├── 自动化任务创建规范 V1.2  ⭐
+│   ├── 数据备份与恢复规范 V1.0
+│   ├── 重大操作决策流程 V1.0
+│   └── 规范执行审计规范 V1.0  🆕
+│
+├── 🛠️ 工具开发
+│   └── Skill开发与更新规范 V1.0
+│
+├── 🔗 协作管理（5个）
+│   ├── 情报协作链路规范 V1.0
+│   ├── 新成员入职规范 V2.0
+│   ├── 任务路由规范 V1.0  🆕
+│   ├── 团队协作规范 V1.0  🆕
+│   └── 成员退出规范 V1.0  🆕
+│
+└── 📋 流程管理
+    ├── 规范索引总览 V2.1（本文档）
+    └── 版本台账 V1.0</div>
+</div>
+
+<!-- Full Norm List -->
+<div class="section">
+  <h2><span class="icon">📋</span> 规范清单（12个）</h2>
+  
+  <table class="norm-table">
+    <tr>
+      <th>分类</th>
+      <th>规范名称</th>
+      <th>版本</th>
+      <th>状态</th>
+    </tr>
+    <tr>
+      <td>📤 推送与发布</td>
+      <td>推送规范</td>
+      <td>V1.0</td>
+      <td><span class="status status-active">✅ 生效</span></td>
+    </tr>
+    <tr>
+      <td rowspan="4">⚙️ 系统运维</td>
+      <td>自动化任务创建规范</td>
+      <td>V1.2</td>
+      <td><span class="status status-active">✅ 生效</span></td>
+    </tr>
+    <tr>
+      <td>数据备份与恢复规范</td>
+      <td>V1.0</td>
+      <td><span class="status status-active">✅ 生效</span></td>
+    </tr>
+    <tr>
+      <td>重大操作决策流程</td>
+      <td>V1.0</td>
+      <td><span class="status status-active">✅ 生效</span></td>
+    </tr>
+    <tr>
+      <td>规范执行审计规范</td>
+      <td>V1.0 <span class="tag">🆕</span></td>
+      <td><span class="status status-new">🆕 待验证</span></td>
+    </tr>
+    <tr>
+      <td>🛠️ 工具开发</td>
+      <td>Skill开发与更新规范</td>
+      <td>V1.0</td>
+      <td><span class="status status-active">✅ 生效</span></td>
+    </tr>
+    <tr>
+      <td rowspan="5">🔗 协作管理</td>
+      <td>情报协作链路规范</td>
+      <td>V1.0</td>
+      <td><span class="status status-active">✅ 生效</span></td>
+    </tr>
+    <tr>
+      <td>新成员入职规范</td>
+      <td>V2.0</td>
+      <td><span class="status status-active">✅ 生效</span></td>
+    </tr>
+    <tr>
+      <td>任务路由规范</td>
+      <td>V1.0 <span class="tag">🆕</span></td>
+      <td><span class="status status-active">✅ 生效</span></td>
+    </tr>
+    <tr>
+      <td>团队协作规范</td>
+      <td>V1.0 <span class="tag">🆕</span></td>
+      <td><span class="status status-active">✅ 生效</span></td>
+    </tr>
+    <tr>
+      <td>成员退出规范</td>
+      <td>V1.0 <span class="tag">🆕</span></td>
+      <td><span class="status status-new">🆕 待验证</span></td>
+    </tr>
+    <tr>
+      <td rowspan="2">📋 流程管理</td>
+      <td>规范索引总览</td>
+      <td>V2.1</td>
+      <td><span class="status status-active">✅ 生效</span></td>
+    </tr>
+    <tr>
+      <td>版本台账</td>
+      <td>V1.0 <span class="tag">🆕</span></td>
+      <td><span class="status status-active">✅ 生效</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- Category Details -->
+<div class="section">
+  <div class="cat-header">📤 推送与发布</div>
+  <div class="core-box">
+    <strong>推送规范 V1.0</strong> — 企业微信推送方式版本管理
+    <ul>
+      <li>M-01: GitHub Pages 图文卡片 ✅ 已验证</li>
+      <li>M-02: 纯文本 ✅ 已验证</li>
+      <li>M-03: surge.sh ❌ token失效，待修复</li>
+      <li>新推送方式需先测试→验证→再正式上线</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="cat-header purple">⚙️ 系统运维</div>
+  <div class="core-box">
+    <strong>自动化任务创建规范 V1.2</strong> — 任务创建全流程
+    <ul>
+      <li>5步创建流程：检查→设计→测试→通知→上线</li>
+      <li>频率设计规则：周复盘只能周日一次</li>
+      <li>V1.1新增防丢失机制：创建前查注册表</li>
+      <li>V1.2新增版本同步条款：操作后必须更新版本台账</li>
+    </ul>
+  </div>
+  <div class="core-box">
+    <strong>数据备份与恢复规范 V1.0</strong>
+    <ul>
+      <li>备份目录：~/备份/Skills/、~/备份/Memory/、~/备份/Tasks/</li>
+      <li>三类备份：增量（每日）、关键节点（手动）、完整（按需）</li>
+      <li>恢复5步流程</li>
+    </ul>
+  </div>
+  <div class="core-box">
+    <strong>重大操作决策流程 V1.0</strong>
+    <ul>
+      <li>三级风险：🔴高（必须Sean确认）/ 🟡中 / 🟢低（直接执行）</li>
+      <li>决策记录模板</li>
+    </ul>
+  </div>
+  <div class="core-box">
+    <strong>规范执行审计规范 V1.0 🆕</strong>
+    <ul>
+      <li>定期审计规范执行情况</li>
+      <li>待验证执行</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="cat-header blue">🛠️ 工具开发</div>
+  <div class="core-box">
+    <strong>Skill开发与更新规范 V1.0</strong> — Skill全生命周期管理
+    <ul>
+      <li>5阶段：规划→安全审查→测试→试运行→上线</li>
+      <li>安全审查三级：P0（禁止）/ P1（警告）/ P2（安全）</li>
+      <li>更新前必须备份，版本号：V主.次.修</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="cat-header green">🔗 协作管理</div>
+  <div class="core-box">
+    <strong>情报协作链路规范 V1.0</strong>
+    <ul>
+      <li>已验证链路：小新→小芯（涨价/缺货）、小新→小股（板块/资金）</li>
+      <li>触发关键词清单（降准、制裁、美联储FOMC等）</li>
+      <li>新增链路5步流程</li>
+    </ul>
+  </div>
+  <div class="core-box">
+    <strong>新成员入职规范 V2.0</strong>
+    <ul>
+      <li>5阶段入职流程 + 20+项检查清单</li>
+      <li>含 MEMORY.md 和 SKILL.md 模板</li>
+    </ul>
+  </div>
+  <div class="core-box">
+    <strong>任务路由规范 V1.0 🆕</strong>
+    <ul>
+      <li>6类关键词路由：芯片→小芯、股票→小股、新闻→小新、聊天→沟通小王子、日程→小秘、规范→小明</li>
+    </ul>
+  </div>
+  <div class="core-box">
+    <strong>团队协作规范 V1.0 🆕</strong>
+    <ul>
+      <li>指挥链 + 反馈链 + 冲突升级机制</li>
+    </ul>
+  </div>
+  <div class="core-box">
+    <strong>成员退出规范 V1.0 🆕</strong>
+    <ul>
+      <li>成员退出流程、数据归档、通知机制</li>
+      <li>待验证执行</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Version Rule -->
+<div class="section">
+  <h2><span class="icon">🔄</span> 版本规则</h2>
+  <div class="rules-box">
+    <strong>版本号规则：</strong>V主版本.次版本.修订号
+    <br>· 主版本(1→2)：重大架构调整
+    <br>· 次版本(0→1)：新增章节/重大变更
+    <br>· 修订号(0→1)：错别字/格式/小幅优化
+  </div>
+  <div class="rules-box" style="margin-top: 8px; border-color: #667eea; background: #f0f4ff;">
+    <strong>⭐ 黄金法则：</strong>「先更新文件，再完成任务」
+    <br>任何任务创建/修改后必须同步更新相关文档和版本台账
+  </div>
+</div>
+
+<!-- Version History -->
+<div class="section">
+  <h2><span class="icon">📊</span> 版本历史</h2>
+  <div class="version-history">
+    <table class="norm-table">
+      <tr><th>版本</th><th>日期</th><th>变更内容</th></tr>
+      <tr><td>V1.0</td><td>2026-03-30</td><td>初始版本，7个规范文件</td></tr>
+      <tr><td>V2.0</td><td>2026-04-06</td><td>新增任务路由规范、版本台账；同步自动化任务创建规范V1.1</td></tr>
+      <tr><td>V2.1</td><td>2026-04-06</td><td>新增团队协作规范、成员退出规范、规范执行审计规范；MEMORY.md全员同步</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- Automation Tasks -->
+<div class="section">
+  <h2><span class="icon">⏰</span> 自动化任务（12个全部就绪）</h2>
+  <table class="norm-table" style="font-size: 13px;">
+    <tr><th>时间</th><th>任务</th><th>归属</th></tr>
+    <tr><td>02:00</td><td>早报生成与推送</td><td>📰小新</td></tr>
+    <tr><td>03:00</td><td>每日增量备份</td><td>🤵小明</td></tr>
+    <tr><td>08:00</td><td>AI进化研究</td><td>🤵小明</td></tr>
+    <tr><td>09:30</td><td>每日开盘提醒</td><td>📈小股</td></tr>
+    <tr><td>13:30</td><td>每日芯片品牌速递</td><td>🔬小芯</td></tr>
+    <tr><td>15:30</td><td>收盘复盘提醒</td><td>📈小股</td></tr>
+    <tr><td>每小时</td><td>小新→小芯/小股情报闭环</td><td>📰小新</td></tr>
+    <tr><td>每4小时</td><td>企业微信连接监控</td><td>🤵小明</td></tr>
+    <tr><td>周日18:00</td><td>周复盘</td><td>🤵+全员</td></tr>
+    <tr><td>周一18:00</td><td>自动化健康检查</td><td>🤵小明</td></tr>
+    <tr><td>周一22:00</td><td>小芯数据导出</td><td>🔬小芯</td></tr>
+    <tr><td>23:30</td><td>每日自省报告</td><td>🤵小明</td></tr>
+  </table>
+</div>
+
+<div class="footer">
+  🦞 小明管家 · 规范体系 V2.1 · 2026-04-06
+</div>
+
+</div>
+</body>
+</html>
