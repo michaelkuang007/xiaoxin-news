@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小新早报 · 2026年4月11日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .header .date {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .card-icon {
+            font-size: 2em;
+            margin-right: 12px;
+        }
+        .card-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #333;
+        }
+        .card-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin-left: auto;
+        }
+        .tag-red { background: #ffebee; color: #c62828; }
+        .tag-green { background: #e8f5e9; color: #2e7d32; }
+        .tag-blue { background: #e3f2fd; color: #1565c0; }
+        .tag-orange { background: #fff3e0; color: #e65100; }
+        .tag-purple { background: #f3e5f5; color: #7b1fa2; }
+        .card-content {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1em;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #ffe082 0%, #ffe082 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 88%;
+            padding: 0 4px;
+            font-weight: 600;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .stat-item {
+            background: #f8f9fa;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #333;
+        }
+        .stat-value.up { color: #d32f2f; }
+        .stat-value.down { color: #388e3c; }
+        .stat-label {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 4px;
+        }
+        .footer {
+            text-align: center;
+            color: white;
+            opacity: 0.8;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+        .keyword-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .keyword {
+            background: #f0f0f0;
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: 0.8em;
+            color: #666;
+        }
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ddd, transparent);
+            margin: 16px 0;
+        }
+        .impact-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            border-left: 4px solid #667eea;
+            padding: 16px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 16px;
+        }
+        .impact-title {
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+        .impact-item {
+            display: flex;
+            align-items: center;
+            margin: 6px 0;
+            font-size: 0.95em;
+        }
+        .impact-icon {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📰 小新早报</h1>
+            <div class="date">2026年4月11日 · 星期六</div>
+        </div>
+
+        <!-- A股行情 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">💰</span>
+                <span class="card-title">A股行情：半导体产业链掀涨停潮</span>
+                <span class="card-tag tag-red">利好</span>
+            </div>
+            <div class="card-content">
+                <p>4月11日，A股三大指数集体收涨，<span class="highlight">半导体产业链全线爆发</span>，超30只个股涨停或涨超10%。</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value up">+0.45%</div>
+                        <div class="stat-label">上证指数 3238.23</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value up">+0.82%</div>
+                        <div class="stat-label">深证成指</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value up">+1.36%</div>
+                        <div class="stat-label">创业板指</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">1.35万亿</div>
+                        <div class="stat-label">两市成交</div>
+                    </div>
+                </div>
+                <div class="keyword-list">
+                    <span class="keyword">半导体</span>
+                    <span class="keyword">涨停潮</span>
+                    <span class="keyword">唯捷创芯</span>
+                    <span class="keyword">思瑞浦</span>
+                    <span class="keyword">圣邦股份</span>
+                    <span class="keyword">纳芯微</span>
+                </div>
+                <div class="impact-box">
+                    <div class="impact-title">🦞 对Sean业务影响</div>
+                    <div class="impact-item"><span class="impact-icon">📈</span>半导体板块爆发 → 客户采购意愿回升</div>
+                    <div class="impact-item"><span class="impact-icon">📈</span>模拟芯片涨停 → 润石替代空间扩大</div>
+                    <div class="impact-item"><span class="impact-icon">📈</span>功率器件活跃 → 芯洲DC-DC需求看涨</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 半导体涨价 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">🔬</span>
+                <span class="card-title">半导体涨价潮：ST/Allegro涨价函倒计时</span>
+                <span class="card-tag tag-orange">关注</span>
+            </div>
+            <div class="card-content">
+                <p>2026年半导体全产业链涨价潮持续蔓延，<span class="highlight">ST 4月26日、Allegro 4月27日涨价函</span>即将生效，国内功率器件厂商跟涨10-20%。</p>
+                <div class="divider"></div>
+                <p><strong>涨价时间线：</strong></p>
+                <ul style="margin-left: 20px; margin-top: 8px;">
+                    <li>✅ TI 15-85%（已生效）</li>
+                    <li>✅ Infineon/NXP（已生效）</li>
+                    <li>⏰ ST 4月26日生效</li>
+                    <li>⏰ Allegro 4月27日≥10%</li>
+                    <li>📈 国内功率器件跟涨10-20%</li>
+                </ul>
+                <div class="keyword-list">
+                    <span class="keyword">涨价函</span>
+                    <span class="keyword">功率器件</span>
+                    <span class="keyword">国产替代</span>
+                    <span class="keyword">华润微</span>
+                    <span class="keyword">交期延长</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 存储芯片 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">💾</span>
+                <span class="card-title">存储芯片：涨价链条持续确认</span>
+                <span class="card-tag tag-red">利好</span>
+            </div>
+            <div class="card-content">
+                <p>存储芯片涨价潮持续，<span class="highlight">三星Q2上调DDR5/HBM合同价30%</span>，SK海力士DDR5涨幅达40%，32G DDR5已涨300%。SK海力士预计缺货将持续至2030年。</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value up">+30%</div>
+                        <div class="stat-label">三星DDR5/HBM</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value up">+40%</div>
+                        <div class="stat-label">SK海力士DDR5</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value up">+300%</div>
+                        <div class="stat-label">32G DDR5</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">2030</div>
+                        <div class="stat-label">缺货预计结束</div>
+                    </div>
+                </div>
+                <div class="keyword-list">
+                    <span class="keyword">DDR5</span>
+                    <span class="keyword">HBM</span>
+                    <span class="keyword">三星</span>
+                    <span class="keyword">SK海力士</span>
+                    <span class="keyword">长鑫CXMT</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI大模型 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">🤖</span>
+                <span class="card-title">AI大模型：GPT-6倒计时3天！</span>
+                <span class="card-tag tag-purple">重磅</span>
+            </div>
+            <div class="card-content">
+                <p><span class="highlight">OpenAI GPT-6（代号"Spud"）定档4月14日发布</span>，性能较GPT-5.4提升40%，上下文窗口达200万Token，原生多模态能力。</p>
+                <div class="divider"></div>
+                <p><strong>GPT-6核心特性：</strong></p>
+                <ul style="margin-left: 20px; margin-top: 8px;">
+                    <li>🚀 性能提升40%</li>
+                    <li>📄 200万Token上下文</li>
+                    <li>🎨 原生多模态（文本/图像/视频）</li>
+                    <li>🤖 Agent能力大幅增强</li>
+                    <li>⏰ 预训练3月17日已完成</li>
+                </ul>
+                <div class="keyword-list">
+                    <span class="keyword">GPT-6</span>
+                    <span class="keyword">Spud</span>
+                    <span class="keyword">OpenAI</span>
+                    <span class="keyword">4月14日</span>
+                    <span class="keyword">AGI</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 国际形势 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">🌍</span>
+                <span class="card-title">国际形势：美伊谈判今日重启</span>
+                <span class="card-tag tag-blue">关注</span>
+            </div>
+            <div class="card-content">
+                <p>美伊临时停火协议生效，<span class="highlight">新一轮谈判4月10日起在巴基斯坦伊斯兰堡举行</span>，为期两周。停火协议4月22日到期，霍尔木兹海峡通航情况仍是关键变量。</p>
+                <div class="divider"></div>
+                <p><strong>关键时间节点：</strong></p>
+                <ul style="margin-left: 20px; margin-top: 8px;">
+                    <li>📅 4月8日：美伊同意停火两周</li>
+                    <li>📅 4月10日：伊斯兰堡谈判启动</li>
+                    <li>⏰ 4月22日：停火协议到期</li>
+                    <li>🚢 霍尔木兹海峡：有条件开放</li>
+                </ul>
+                <div class="keyword-list">
+                    <span class="keyword">美伊谈判</span>
+                    <span class="keyword">霍尔木兹海峡</span>
+                    <span class="keyword">巴基斯坦</span>
+                    <span class="keyword">停火协议</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 今日关注 -->
+        <div class="card">
+            <div class="card-header">
+                <span class="card-icon">🦞</span>
+                <span class="card-title">Sean今日重点关注</span>
+                <span class="card-tag tag-green">行动</span>
+            </div>
+            <div class="card-content">
+                <div class="impact-box">
+                    <div class="impact-title">📋 今日行动清单</div>
+                    <div class="impact-item"><span class="impact-icon">1️⃣</span>跟进ST/Allegro涨价函客户备货需求</div>
+                    <div class="impact-item"><span class="impact-icon">2️⃣</span>功率器件（芯洲DC-DC）询盘跟进</div>
+                    <div class="impact-item"><span class="impact-icon">3️⃣</span>DDR5/HBM配套被动元件需求挖掘</div>
+                    <div class="impact-item"><span class="impact-icon">4️⃣</span>模拟芯片（润石）替代方案推广</div>
+                    <div class="impact-item"><span class="impact-icon">5️⃣</span>关注GPT-6发布对算力硬件需求影响</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🦞 小新新闻 · 为Sean的半导体生意保驾护航</p>
+            <p>早报生成时间：2026-04-11 02:00</p>
+        </div>
+    </div>
+</body>
+</html>
