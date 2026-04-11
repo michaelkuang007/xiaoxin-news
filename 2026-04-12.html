@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📰 小新早报 · 2026-04-12</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f5f6fa; color: #2c3e50; line-height: 1.7; }
+        .container { max-width: 680px; margin: 0 auto; padding: 16px; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 16px; padding: 24px 20px; margin-bottom: 16px; text-align: center; }
+        .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+        .header .subtitle { font-size: 13px; opacity: 0.85; }
+        .header .badge { display: inline-block; background: rgba(255,255,255,0.25); border-radius: 20px; padding: 3px 12px; font-size: 12px; margin-top: 8px; }
+        .market-bar { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 16px; }
+        .market-chip { flex-shrink: 0; background: white; border-radius: 10px; padding: 8px 14px; font-size: 13px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); border-left: 3px solid #ddd; }
+        .market-chip.up { border-left-color: #e74c3c; }
+        .market-chip.down { border-left-color: #27ae60; }
+        .market-chip .label { color: #888; font-size: 11px; }
+        .market-chip .val { font-weight: 600; font-size: 14px; }
+        .market-chip .chg { font-size: 12px; }
+        .market-chip .chg.up { color: #e74c3c; }
+        .market-chip .chg.down { color: #27ae60; }
+        .section { background: white; border-radius: 12px; padding: 18px 20px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+        .section-tag { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 6px; margin-bottom: 12px; }
+        .tag-bk { background: #eef2ff; color: #4f46e5; }
+        .tag-chip { background: #fdf2f8; color: #db2777; }
+        .tag-ai { background: #f0fdf4; color: #16a34a; }
+        .tag-intl { background: #fefce8; color: #ca8a04; }
+        .tag-ind { background: #f0f9ff; color: #0369a1; }
+        .item { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px dashed #f0f0f0; }
+        .item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .item-title { font-size: 15px; font-weight: 600; color: #1a1a2e; margin-bottom: 4px; }
+        .item-body { font-size: 13.5px; color: #555; }
+        .item-meta { font-size: 11px; color: #aaa; margin-top: 5px; }
+        .impact-box { background: linear-gradient(135deg, #f8fafc, #f0f9ff); border: 1px solid #e0f2fe; border-radius: 10px; padding: 14px 16px; margin-top: 14px; }
+        .impact-box h4 { font-size: 13px; font-weight: 700; color: #0369a1; margin-bottom: 8px; }
+        .impact-item { font-size: 13px; color: #374151; padding: 2px 0; }
+        .impact-item.positive::before { content: "✅ "; }
+        .impact-item.negative::before { content: "⚠️ "; }
+        .impact-item.opportunity::before { content: "💡 "; }
+        .tag-hot { background: #fee2e2; color: #dc2626; border-radius: 4px; padding: 1px 6px; font-size: 11px; font-weight: 600; margin-left: 6px; }
+        .countdown { background: #fff7ed; border: 1px solid #fed7aa; border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; text-align: center; }
+        .countdown-title { font-size: 13px; font-weight: 700; color: #c2410c; margin-bottom: 6px; }
+        .countdown-time { font-size: 28px; font-weight: 800; color: #ea580c; }
+        .countdown-desc { font-size: 12px; color: #9a3412; margin-top: 4px; }
+        .footer { text-align: center; padding: 20px; font-size: 12px; color: #aaa; }
+        .keywords { font-size: 12px; color: #888; background: #fafafa; border-radius: 8px; padding: 10px 14px; margin-top: 10px; }
+        .keyword-tag { display: inline-block; background: #eee; border-radius: 4px; padding: 1px 7px; font-size: 11px; margin: 2px 3px; color: #555; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 头部 -->
+    <div class="header">
+        <h1>📰 小新早报</h1>
+        <div class="subtitle">2026年4月12日 · 周日 · 第11期</div>
+        <div class="badge">🌙 凌晨自动生成 · 数据截至4月11日收盘</div>
+    </div>
+
+    <!-- GPT-6倒计时 -->
+    <div class="countdown">
+        <div class="countdown-title">⏰ GPT-6 发布倒计时</div>
+        <div class="countdown-time">2 天</div>
+        <div class="countdown-desc">4月14日凌晨 · Spud代号 · 200万Token · +40%性能</div>
+    </div>
+
+    <!-- 行情概览 -->
+    <div class="section">
+        <div class="section-tag tag-bk">💰 行情概览</div>
+        <div class="market-bar">
+            <div class="market-chip">
+                <div class="label">沪指</div>
+                <div class="val">3989</div>
+                <div class="chg up">+2.70%</div>
+            </div>
+            <div class="market-chip">
+                <div class="label">深成指</div>
+                <div class="val">14309</div>
+                <div class="chg up">+2.24%</div>
+            </div>
+            <div class="market-chip">
+                <div class="label">创业板</div>
+                <div class="val">—</div>
+                <div class="chg up">+1.36%</div>
+            </div>
+            <div class="market-chip">
+                <div class="label">成交额</div>
+                <div class="val">2.43万亿</div>
+                <div class="chg up">+8201亿</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- A股/财经 -->
+    <div class="section">
+        <div class="section-tag tag-bk">💰 A股财经</div>
+        <div class="item">
+            <div class="item-title">A股百点长阳逼近4000，创业板+5.91% <span class="tag-hot">爆</span></div>
+            <div class="item-body">4月9日A股放量大涨，沪指+2.70%报3989点，深成指+4.79%，创业板指+5.91%。成交2.43万亿，环比放量8201亿，近5200只个股收红。券商板块强势爆发，中信证券+7%。</div>
+            <div class="item-meta">来源：东方财富 · 2026-04-09</div>
+        </div>
+        <div class="item">
+            <div class="item-title">半导体掀涨停潮，超30股涨停</div>
+            <div class="item-body">4月11日半导体板块爆发，多只个股涨停。功率器件、模拟芯片、存储芯片全线上扬。华润微+13%，寒武纪+4.59%，芯原股份涨停。</div>
+            <div class="item-meta">来源：同花顺 · 2026-04-11</div>
+        </div>
+        <div class="item">
+            <div class="item-title">中信证券Q1业绩大增40%</div>
+            <div class="item-body">中信证券发布Q1业绩快报：营收231.55亿元，同比+40.91%。"牛市旗手"引爆券商板块，哈投股份盘中涨停。</div>
+            <div class="item-meta">来源：华尔街见闻 · 2026-04-09</div>
+        </div>
+    </div>
+
+    <!-- 半导体 -->
+    <div class="section">
+        <div class="section-tag tag-chip">🔬 半导体</div>
+        <div class="item">
+            <div class="item-title">全产业链涨价潮加速，ST/Allegro涨价函倒计时 <span class="tag-hot">⚡</span></div>
+            <div class="item-body">
+                <b>ST（意法半导体）</b>：4月26日起上调多款产品价格。<br>
+                <b>Allegro</b>：4月27日起涨价≥10%。<br>
+                <b>TI/Infineon/NXP</b>：已生效（4月1日起15-85%涨幅）。<br>
+                <b>国内厂商</b>：华润微等跟涨10-20%，功率器件成重灾区。
+            </div>
+            <div class="item-meta">来源：中国证券报 · 2026-04-08</div>
+        </div>
+        <div class="item">
+            <div class="item-title">存储涨价链条持续确认：DDR5涨300%，缺货至2030年</div>
+            <div class="item-body">
+                <b>三星</b>：Q2 DDR5/HBM合同价上调30%。<br>
+                <b>SK海力士</b>：DDR5上调40%，预计缺货延续至2030年。<br>
+                <b>消费级</b>：32G DDR5已涨300%。<br>
+                <b>长鑫CXMT</b>：国产替代窗口持续打开，28nm产能放量中。
+            </div>
+            <div class="item-meta">来源：21财经 · 2026-04-10</div>
+        </div>
+        <div class="item">
+            <div class="item-title">存储企业Q1业绩报喜，涨价逻辑持续验证</div>
+            <div class="item-body">国内外存储芯片企业Q1业绩亮眼，多家公司扭亏为盈。存储涨价潮已从HBM/服务器蔓延至消费级DDR5，行业超级周期确认。</div>
+            <div class="item-meta">来源：同花顺 · 2026-04-09</div>
+        </div>
+    </div>
+
+    <!-- AI科技 -->
+    <div class="section">
+        <div class="section-tag tag-ai">🤖 AI大模型</div>
+        <div class="item">
+            <div class="item-title">GPT-6倒计时：2天后发布，Spud代号确认 <span class="tag-hot">🔥</span></div>
+            <div class="item-body">
+                OpenAI官方确认：GPT-6将于4月14日全球同步发布，代号"Spud"。预训练3月17日完成，后训练/安全对齐已全部搞定。<br>
+                <b>核心亮点</b>：200万Token上下文、+40%性能提升、原生多模态、多Agent协同能力，定价$2.5/MT输入。
+            </div>
+            <div class="item-meta">来源：腾讯新闻/钛媒体 · 2026-04-09</div>
+        </div>
+        <div class="item">
+            <div class="item-title">4月AI大模型军备竞赛：国产模型逆袭</div>
+            <div class="item-body">
+                <b>DeepSeek V4</b>：已正式发布，$0.28/MT，100%昇腾运行。<br>
+                <b>Google Gemma 4</b>：26B MoE，16GB VRAM可跑，开源首周下载1000万次。<br>
+                <b>Kimi K2.5</b>：编程得分65.6%，超GPT-5.4，开源可部署。<br>
+                <b>Claude Mythos 5</b>：10万亿参数，Anthropic年化$300亿。
+            </div>
+            <div class="item-meta">来源：知乎/CSDN · 2026-04-11</div>
+        </div>
+    </div>
+
+    <!-- 国际形势 -->
+    <div class="section">
+        <div class="section-tag tag-intl">🌐 国际形势</div>
+        <div class="item">
+            <div class="item-title">美伊谈判在伊斯兰堡举行，停火协议4月22日到期 <span class="tag-hot">⚠️</span></div>
+            <div class="item-body">
+                4月11日，美国与伊朗代表团在巴基斯坦首都伊斯兰堡塞雷纳酒店举行谈判。临时停火协议于4月7日达成，持续至4月22日。<br>
+                <b>分歧焦点</b>：伊朗铀浓缩活动、霍尔木兹海峡通航、黎巴嫩停火、美军中东撤军。<br>
+                <b>风险</b>：美向中东持续增兵，伊朗武装部队保持"完全戒备"。
+            </div>
+            <div class="item-meta">来源：新华网/中新网 · 2026-04-11</div>
+        </div>
+        <div class="item">
+            <div class="item-title">马斯克起诉OpenAI升级，4月27日开庭</div>
+            <div class="item-body">马斯克将诉讼升级，要求罢免Sam Altman和Greg Brockman，索赔逾千亿美元。4月27日开庭（距今15天），成为GPT-6发布后另一重大事件。</div>
+            <div class="item-meta">来源：搜狐 · 2026-04-11</div>
+        </div>
+    </div>
+
+    <!-- 对Sean业务影响 -->
+    <div class="section">
+        <div class="section-tag tag-ind">🏭 Sean业务影响</div>
+        <div class="impact-box">
+            <h4>📊 对上游原厂（艾华/芯洲/润石）的影响</h4>
+            <div class="impact-item positive">全产业链涨价+AI服务器电源需求，艾华/芯洲/润石定价权提升</div>
+            <div class="impact-item positive">功率器件涨价潮：芯洲DC-DC转换器直接受益</div>
+            <div class="impact-item positive">存储DDR5/HBM涨价→艾华铝电解电容出货量增长</div>
+            <div class="impact-item opportunity">长鑫CXMT替代窗口持续→国产存储配套被动元件需求上升</div>
+            <div class="impact-item positive">ST/Allegro涨价函生效→润石模拟芯片替代空间扩大</div>
+        </div>
+        <div class="impact-box" style="margin-top: 10px;">
+            <h4>⚡ 行动建议</h4>
+            <div class="impact-item opportunity">🔴 重点关注：ST 4月26日/Allegro 4月27日涨价函生效→客户集中备货窗口</div>
+            <div class="impact-item positive">🟡 积极跟进：功率器件涨价→芯洲DC-DC需求看涨，主动联系客户</div>
+            <div class="impact-item opportunity">🟢 布局替代：DDR5/HBM涨价持续→艾华/长鑫CXMT供应链配套机会</div>
+        </div>
+    </div>
+
+    <!-- 关键词 -->
+    <div class="keywords">
+        <strong>关键词扫描：</strong>
+        <span class="keyword-tag">半导体</span>
+        <span class="keyword-tag">涨价</span>
+        <span class="keyword-tag">TI 15-85%</span>
+        <span class="keyword-tag">ST 4/26</span>
+        <span class="keyword-tag">Allegro 4/27</span>
+        <span class="keyword-tag">DDR5 +300%</span>
+        <span class="keyword-tag">HBM</span>
+        <span class="keyword-tag">长鑫CXMT</span>
+        <span class="keyword-tag">国产替代</span>
+        <span class="keyword-tag">GPT-6 倒计时2天</span>
+        <span class="keyword-tag">DeepSeek V4</span>
+        <span class="keyword-tag">美伊谈判</span>
+        <span class="keyword-tag">A股 +2.70%</span>
+        <span class="keyword-tag">半导体涨停潮</span>
+        <span class="keyword-tag">功率器件</span>
+        <span class="keyword-tag">成交2.43万亿</span>
+    </div>
+
+    <div class="footer">
+        📰 小新早报 · Sean专属供应链情报 · 每日02:00自动生成<br>
+        <span style="color:#ccc">Powered by 小明管家 × 小新新闻 · 2026-04-12 02:00</span>
+    </div>
+</div>
+</body>
+</html>
