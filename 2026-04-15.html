@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🦞 小新早报 · 2026-04-15</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #0a0a14; color: #e8e8f0; line-height: 1.7; }
+  .container { max-width: 680px; margin: 0 auto; padding: 20px 16px 60px; }
+  .header { text-align: center; padding: 32px 0 24px; border-bottom: 1px solid rgba(100,100,255,0.15); margin-bottom: 28px; }
+  .header .date { font-size: 13px; color: #8888cc; letter-spacing: 2px; margin-bottom: 8px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: #ffffff; letter-spacing: 1px; }
+  .header .sub { font-size: 13px; color: #6699ff; margin-top: 6px; font-weight: 500; }
+
+  .hero-alert { background: linear-gradient(135deg, #1a1a3e, #2d1b4e); border: 1px solid #ff4444; border-radius: 14px; padding: 20px 24px; margin-bottom: 24px; text-align: center; }
+  .hero-alert .tag { display: inline-block; background: #ff4444; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: 1px; margin-bottom: 10px; }
+  .hero-alert h2 { color: #fff; font-size: 20px; margin-bottom: 6px; }
+  .hero-alert p { color: #ffaaaa; font-size: 13px; }
+
+  .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(100,100,255,0.12); border-radius: 14px; padding: 20px 22px; margin-bottom: 16px; }
+  .card .cat { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .card h3 { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; line-height: 1.5; }
+  .card p { font-size: 14px; color: #aaaacc; margin-bottom: 10px; }
+  .card .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .tag-pill { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+  .tag-red { background: rgba(255,60,60,0.15); color: #ff7777; border: 1px solid rgba(255,60,60,0.3); }
+  .tag-green { background: rgba(40,200,80,0.12); color: #66ff99; border: 1px solid rgba(40,200,80,0.3); }
+  .tag-blue { background: rgba(60,120,255,0.12); color: #88aaff; border: 1px solid rgba(60,120,255,0.3); }
+  .tag-purple { background: rgba(160,60,255,0.12); color: #cc88ff; border: 1px solid rgba(160,60,255,0.3); }
+  .tag-orange { background: rgba(255,140,0,0.12); color: #ffbb44; border: 1px solid rgba(255,140,0,0.3); }
+  .tag-pink { background: rgba(255,60,120,0.12); color: #ff88aa; border: 1px solid rgba(255,60,120,0.3); }
+
+  .section-title { font-size: 13px; font-weight: 700; color: #5566aa; letter-spacing: 1.5px; margin: 24px 0 12px; padding-left: 4px; border-left: 3px solid #4455bb; }
+
+  .impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+  .impact-item { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 12px; }
+  .impact-item .icon { font-size: 18px; margin-bottom: 4px; }
+  .impact-item .type { font-size: 11px; font-weight: 600; margin-bottom: 3px; }
+  .impact-item .type.positive { color: #55ee88; }
+  .impact-item .type.risk { color: #ff7777; }
+  .impact-item .type.opportunity { color: #ffcc44; }
+  .impact-item .content { font-size: 12px; color: #9999bb; line-height: 1.5; }
+
+  .footer { text-align: center; padding: 30px 0 10px; color: #444466; font-size: 12px; }
+  .footer a { color: #5566aa; text-decoration: none; }
+
+  .live-badge { display: inline-block; background: #ff4444; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+
+  .countdown-bar { background: linear-gradient(90deg, #1a003a, #2d0055); border: 1px solid #ff4444; border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+  .countdown-bar .cd-icon { font-size: 24px; }
+  .countdown-bar .cd-text { flex: 1; }
+  .countdown-bar .cd-label { font-size: 11px; color: #ff8888; font-weight: 600; letter-spacing: 1px; }
+  .countdown-bar .cd-main { font-size: 15px; color: #ffaaaa; font-weight: 600; }
+  .countdown-bar .cd-time { font-size: 22px; font-weight: 700; color: #ff4444; letter-spacing: 2px; }
+
+  .data-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  .data-table td { padding: 5px 8px; font-size: 13px; border-bottom: 1px solid rgba(100,100,255,0.06); }
+  .data-table td:first-child { color: #8888cc; }
+  .data-table td:last-child { color: #fff; font-weight: 600; text-align: right; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="date">2026-04-15 · 周三</div>
+    <h1>🦞 小新早报</h1>
+    <div class="sub">小芯专家 · 供应链情报 · 每日早8点送达</div>
+  </div>
+
+  <!-- GPT-6 发布后第一天 -->
+  <div class="countdown-bar" style="background: linear-gradient(90deg, #001a00, #005500); border-color: #44ff44;">
+    <div class="cd-icon">🤖</div>
+    <div class="cd-text">
+      <div class="cd-label"><span class="live-badge" style="background:#44ff44;color:#000;">● POST-LIVE</span> &nbsp;GPT-6 发布后第一天</div>
+      <div class="cd-main">AI算力需求爆发 · A股半导体涨停潮 · 4000点收复</div>
+    </div>
+    <div class="cd-time" style="color:#44ff44;">Day 1</div>
+  </div>
+
+  <!-- 核心事件卡片 -->
+  <div class="card" style="border-color: rgba(68,255,68,0.4);">
+    <div class="cat" style="color:#44ff44;"><span style="font-size:16px;">🚀</span> <span>TOP STORY · 今日头条</span></div>
+    <h3>🤖 GPT-6正式发布后首日：AI算力需求爆发，半导体全线涨停</h3>
+    <p>GPT-6（代号Spud/Helena）于4月14日全球同步上线，代号"Helena"的版本具备<strong style="color:#cc88ff;">原生世界模型能力</strong>，逻辑推理进入人类前1%，深度适配人形机器人，推理能耗降低40%，被视为<strong style="color:#ffaaaa;">AGI物理元年开端</strong>。发布后首个交易日，A股半导体板块全线爆发，沪指重返4000点。</p>
+    <div class="tag-row">
+      <span class="tag-pill tag-green">AGI元年</span>
+      <span class="tag-pill tag-purple">Helena架构</span>
+      <span class="tag-pill tag-purple">算力爆发</span>
+      <span class="tag-pill tag-blue">GPT-6</span>
+    </div>
+  </div>
+
+  <div class="section-title">📊 今日市场</div>
+
+  <div class="card">
+    <div class="cat" style="color:#ff7777;"><span style="font-size:16px;">💰</span> <span>A股 · 财经</span></div>
+    <h3>沪指重返4000点，创业板涨超2%，成交2.38万亿</h3>
+    <p>4月15日（发布后首日），A股三大指数集体收涨：沪指涨0.95%站稳4000点，创业板指大涨2.36%，深成指涨1.36%。成交额2.38万亿元，半导体、存储芯片板块领涨，超2600只个股飘红。</p>
+    <table class="data-table">
+      <tr><td>上证指数</td><td style="color:#ff7777;">+0.95% → 4032.18</td></tr>
+      <tr><td>深证成指</td><td style="color:#ff7777;">+1.36% → 14603.34</td></tr>
+      <tr><td>创业板指</td><td style="color:#ff7777;">+2.36% → 1789.52</td></tr>
+      <tr><td>成交额</td><td style="color:#ffaaaa;">2.38万亿元</td></tr>
+    </table>
+    <div class="tag-row">
+      <span class="tag-pill tag-red">半导体涨停潮</span>
+      <span class="tag-pill tag-red">4000点收复</span>
+      <span class="tag-pill tag-blue">存储芯片领涨</span>
+    </div>
+  </div>
+
+  <div class="section-title">🔬 半导体 & 芯片</div>
+
+  <div class="card">
+    <div class="cat" style="color:#6699ff;"><span style="font-size:16px;">💾</span> <span>存储芯片 · 涨价潮</span></div>
+    <h3>存储涨价链条持续确认，DDR5/HBM全面紧缺</h3>
+    <p>三星Q2 DDR5/HBM合同价上调30%已生效，SK海力士DDR5上调40%，32G DDR5涨幅超300%。SK海力士预测HBM供需缺口将持续至2030年。长鑫CXMT DDR5量产推进，国产替代窗口持续扩大。</p>
+    <div class="tag-row">
+      <span class="tag-pill tag-orange">DDR5 +300%</span>
+      <span class="tag-pill tag-orange">HBM缺货</span>
+      <span class="tag-pill tag-purple">长鑫CXMT</span>
+      <span class="tag-pill tag-blue">国产替代</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cat" style="color:#ffcc44;"><span style="font-size:16px;">⚡</span> <span>功率器件 · 涨价函</span></div>
+    <h3>ST 4/26 / Allegro 4/27 涨价倒计时，功率器件跟涨10-20%</h3>
+    <p>ST涨价函4月26日生效（倒计时11天），Allegro 4月27日涨价≥10%（倒计时12天）。华润微已跟涨13%，功率器件全产业链涨价10-20%。国内厂商趁窗口期加速替代认证。</p>
+    <div class="tag-row">
+      <span class="tag-pill tag-red">ST 4/26</span>
+      <span class="tag-pill tag-red">Allegro 4/27</span>
+      <span class="tag-pill tag-orange">倒计时11天</span>
+      <span class="tag-pill tag-blue">国产替代</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cat" style="color:#cc88ff;"><span style="font-size:16px;">🎯</span> <span>AI算力 · 芯片</span></div>
+    <h3>GPT-6发布催化AI算力需求，服务器DDR5/HBM持续紧缺</h3>
+    <p>GPT-6采用1.4nm制程，推理能耗降低40%，但算力需求爆发式增长。AI服务器DDR5/HBM持续紧缺，华为昇腾950PR深度适配DeepSeek V4，算力硬件国产化加速。</p>
+    <div class="tag-row">
+      <span class="tag-pill tag-purple">算力爆发</span>
+      <span class="tag-pill tag-purple">昇腾950PR</span>
+      <span class="tag-pill tag-blue">DeepSeek V4</span>
+    </div>
+  </div>
+
+  <div class="section-title">🌍 国际形势</div>
+
+  <div class="card">
+    <div class="cat" style="color:#ffaa44;"><span style="font-size:16px;">⚖️</span> <span>马斯克诉讼 · OpenAI</span></div>
+    <h3>马斯克诉OpenAI 4月28日开庭（倒计时13天），索赔1340亿美元</h3>
+    <p>马斯克起诉OpenAI案将于4月28日开庭（较预期27日延后一天），索赔1340亿美元。马斯克寻求罢免奥特曼职务，OpenAI内部动荡，一周内6位核心高管变动。GPT-6上线未能平息争议。</p>
+    <div class="tag-row">
+      <span class="tag-pill tag-red">4/28开庭</span>
+      <span class="tag-pill tag-red">倒计时13天</span>
+      <span class="tag-pill tag-orange">$1340亿</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cat" style="color:#66ddaa;"><span style="font-size:16px;">🕊️</span> <span>地缘政治 · 中东</span></div>
+    <h3>美伊和平协议谈判持续，市场风险偏好回升</h3>
+    <p>美伊和平协议谈判在伊斯兰堡持续推进，停火协议4月22日到期。市场预期协议延长或升级，亚太股市普涨，A股外部环境整体稳定。</p>
+    <div class="tag-row">
+      <span class="tag-pill tag-green">停火延期</span>
+      <span class="tag-pill tag-green">市场回暖</span>
+    </div>
+  </div>
+
+  <div class="section-title">💡 Sean业务影响分析</div>
+
+  <div class="impact-grid">
+    <div class="impact-item">
+      <div class="icon">📈</div>
+      <div class="type positive">[利好]</div>
+      <div class="content">GPT-6发布→AI算力爆发→芯洲DC-DC/艾华铝电容双受益</div>
+    </div>
+    <div class="impact-item">
+      <div class="icon">📈</div>
+      <div class="type positive">[利好]</div>
+      <div class="content">全产业链涨价→艾华/芯洲/润石定价权提升</div>
+    </div>
+    <div class="impact-item">
+      <div class="icon">⚡</div>
+      <div class="type opportunity">[机会]</div>
+      <div class="content">功率器件涨价→芯洲DC-DC转换器直接受益</div>
+    </div>
+    <div class="impact-item">
+      <div class="icon">💾</div>
+      <div class="type opportunity">[机会]</div>
+      <div class="content">长鑫CXMT替代窗口→国产存储配套被动元件需求上升</div>
+    </div>
+    <div class="impact-item">
+      <div class="icon">🎯</div>
+      <div class="type opportunity">[机会]</div>
+      <div class="content">ST/Allegro涨价函生效前→客户集中备货窗口</div>
+    </div>
+    <div class="impact-item">
+      <div class="icon">⚠️</div>
+      <div class="type risk">[风险]</div>
+      <div class="content">马斯克诉讼4/28开庭→OpenAI上市不确定性</div>
+    </div>
+  </div>
+
+  <div class="section-title">📅 关键倒计时</div>
+
+  <div class="card">
+    <div class="tag-row">
+      <span class="tag-pill tag-red">⏰ ST涨价 4/26（11天）</span>
+      <span class="tag-pill tag-red">⏰ Allegro涨价 4/27（12天）</span>
+      <span class="tag-pill tag-red">⏰ 马斯克诉讼 4/28（13天）</span>
+      <span class="tag-pill tag-orange">⏰ 美伊停火 4/22（7天）</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>🦞 小新早报 · 每日凌晨2:00自动生成</p>
+    <p>📡 同步推送：企业微信 · Surge.sh · 本地存档</p>
+    <p style="margin-top:8px;">⚠️ 早报内容仅供参考，不构成投资建议</p>
+  </div>
+
+</div>
+</body>
+</html>
