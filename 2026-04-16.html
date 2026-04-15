@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🦞 小新早报 · 2026-04-16</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #0a0a14; color: #e8e8f0; line-height: 1.7; }
+  .container { max-width: 680px; margin: 0 auto; padding: 20px 16px 60px; }
+  .header { text-align: center; padding: 32px 0 24px; border-bottom: 1px solid rgba(100,100,255,0.15); margin-bottom: 28px; }
+  .header .date { font-size: 13px; color: #8888cc; letter-spacing: 2px; margin-bottom: 8px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: #ffffff; letter-spacing: 1px; }
+  .header .sub { font-size: 13px; color: #6699ff; margin-top: 6px; font-weight: 500; }
+
+  .hero-alert { background: linear-gradient(135deg, #1a1a3e, #2d1b4e); border: 1px solid #ff4444; border-radius: 14px; padding: 20px 24px; margin-bottom: 24px; text-align: center; }
+  .hero-alert .tag { display: inline-block; background: #ff4444; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: 1px; margin-bottom: 10px; }
+  .hero-alert h2 { color: #fff; font-size: 20px; margin-bottom: 6px; }
+  .hero-alert p { color: #ffaaaa; font-size: 13px; }
+
+  .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(100,100,255,0.12); border-radius: 14px; padding: 20px 22px; margin-bottom: 16px; }
+  .card .cat { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .card h3 { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; line-height: 1.5; }
+  .card p { font-size: 14px; color: #aaaacc; margin-bottom: 10px; }
+  .card .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .tag-pill { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+  .tag-red { background: rgba(255,60,60,0.15); color: #ff7777; border: 1px solid rgba(255,60,60,0.3); }
+  .tag-green { background: rgba(40,200,80,0.12); color: #66ff99; border: 1px solid rgba(40,200,80,0.3); }
+  .tag-blue { background: rgba(60,120,255,0.12); color: #88aaff; border: 1px solid rgba(60,120,255,0.3); }
+  .tag-purple { background: rgba(160,60,255,0.12); color: #cc88ff; border: 1px solid rgba(160,60,255,0.3); }
+  .tag-orange { background: rgba(255,140,0,0.12); color: #ffbb44; border: 1px solid rgba(255,140,0,0.3); }
+  .tag-pink { background: rgba(255,60,120,0.12); color: #ff88aa; border: 1px solid rgba(255,60,120,0.3); }
+
+  .section-title { font-size: 13px; font-weight: 700; color: #5566aa; letter-spacing: 1.5px; margin: 24px 0 12px; padding-left: 4px; border-left: 3px solid #4455bb; }
+
+  .impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+  .impact-item { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 12px; }
+  .impact-item .icon { font-size: 18px; margin-bottom: 4px; }
+  .impact-item .type { font-size: 11px; font-weight: 600; margin-bottom: 3px; }
+  .impact-item .type.positive { color: #55ee88; }
+  .impact-item .type.risk { color: #ff7777; }
+  .impact-item .type.opportunity { color: #ffcc44; }
+  .impact-item .content { font-size: 12px; color: #9999bb; line-height: 1.5; }
+
+  .footer { text-align: center; padding: 30px 0 10px; color: #444466; font-size: 12px; }
+  .footer a { color: #5566aa; text-decoration: none; }
+
+  .live-badge { display: inline-block; background: #ff4444; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+
+  .countdown-bar { background: linear-gradient(90deg, #1a003a, #2d0055); border: 1px solid #ff4444; border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+  .countdown-bar .cd-icon { font-size: 24px; }
+  .countdown-bar .cd-text { flex: 1; }
+  .countdown-bar .cd-label { font-size: 11px; color: #ff8888; font-weight: 600; letter-spacing: 1px; }
+  .countdown-bar .cd-main { font-size: 15px; color: #ffaaaa; font-weight: 600; }
+  .countdown-bar .cd-time { font-size: 22px; font-weight: 700; color: #ff4444; letter-spacing: 2px; }
+
+  .data-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  .data-table td { padding: 5px 8px; font-size: 13px; border-bottom: 1px solid rgba(100,100,255,0.06); }
+  .data-table td:first-child { color: #8888cc; }
+  .data-table td:last-child { color: #fff; font-weight: 600; text-align: right; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="date">2026-04-16 · 周四</div>
+    <h1>🦞 小新早报</h1>
+    <div class="sub">小芯专家 · 供应链情报 · 每日早8点送达</div>
+  </div>
+
+  <!-- ST涨价倒计时 + 智元大会 -->
+  <div class="countdown-bar" style="background: linear-gradient(90deg, #1a0a00, #331a00); border-color: #ff8844;">
+    <div class="cd-icon">🔬</div>
+    <div class="cd-text">
+      <div class="cd-label"><span class="live-badge">● 倒计时</span> &nbsp;ST 4/26 涨价函生效</div>
+      <div class="cd-main">ST 4月26日 · Allegro 4月27日 · 功率器件全线跟涨</div>
+    </div>
+    <div class="cd-time">10天</div>
+  </div>
+
+  <div class="countdown-bar" style="background: linear-gradient(90deg, #001a1a, #003333); border-color: #44ccff;">
+    <div class="cd-icon">🤖</div>
+    <div class="cd-text">
+      <div class="cd-label"><span class="live-badge" style="background:#44ccff;color:#000;">● 倒计时</span> &nbsp;智元机器人 2026 合作伙伴大会</div>
+      <div class="cd-main">4月17日上海 · 2500人/34国 · 4款本体+4个大模型+7个方案</div>
+    </div>
+    <div class="cd-time" style="color:#44ccff;">明天</div>
+  </div>
+
+  <!-- 核心新闻 -->
+  <div class="section-title">📰 核心新闻</div>
+
+  <div class="card">
+    <div class="cat"><span class="tag-pill tag-red">🔴 置顶</span> 💰 A股行情</div>
+    <h3>沪指站稳4000点，GPT-6催化AI+半导体持续爆发</h3>
+    <p>4月15日A股三大指数高开后冲高回落，沪指午盘报4041.45点涨0.37%。4月14日收复4000点后，半导体/存储芯片概念持续活跃。存储芯片三巨头（江波龙、佰维存储、德明利）总市值均突破千亿元，创历史里程碑。创业板指创2021年8月以来新高。成交维持2万亿+水平，市场情绪偏暖。</p>
+    <table class="data-table">
+      <tr><td>沪指</td><td style="color:#ff6666;">4041.45 (+0.37%)</td></tr>
+      <tr><td>深成指</td><td style="color:#ff6666;">14603.xx (-0.25%)</td></tr>
+      <tr><td>创业板指</td><td style="color:#ff6666;">创4年新高</td></tr>
+      <tr><td>成交额</td><td>2万亿+水平</td></tr>
+    </table>
+    <div class="tag-row">
+      <span class="tag-pill tag-red">半导体涨停潮</span>
+      <span class="tag-pill tag-blue">存储芯片</span>
+      <span class="tag-pill tag-green">4000点</span>
+      <span class="tag-pill tag-purple">AI算力</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cat"><span class="tag-pill tag-orange">⚡ 关注</span> 🔬 半导体涨价潮</div>
+    <h3>涨价潮蔓延全产业链：TI/Infineon/NXP已生效，ST 4/26在即</h3>
+    <p>2026年Q1以来，全球半导体迎来史上罕见的全产业链涨价潮。TI年内第二轮涨价工业级最高85%已生效，ST 4月26日涨价函即将落地，Allegro 4月27日涨价≥10%。国内功率器件厂商跟涨10-20%，华润微已涨13%。涨价链条从存储→模拟→功率→MCU全覆盖，国产替代窗口持续扩大。</p>
+    <table class="data-table">
+      <tr><td>TI 工业级</td><td style="color:#ff6666;">最高 +85% ✅已生效</td></tr>
+      <tr><td>ST 多产品线</td><td>4/26 生效 · 10天后</td></tr>
+      <tr><td>Allegro</td><td>4/27 ≥+10%</td></tr>
+      <tr><td>国内功率器件</td><td style="color:#ff6666;">跟涨 10-20%</td></tr>
+    </table>
+    <div class="tag-row">
+      <span class="tag-pill tag-red">涨价潮</span>
+      <span class="tag-pill tag-orange">ST 4/26</span>
+      <span class="tag-pill tag-blue">国产替代</span>
+      <span class="tag-pill tag-purple">交期延长</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cat"><span class="tag-pill tag-blue">💾 HOT</span> 💾 存储芯片</div>
+    <h3>存储三巨头总市值破千亿，DRAM涨价90%创历史新高</h3>
+    <p>4月14日，江波龙、佰维存储、德明利总市值均突破千亿元。DRAMeXchange数据显示，服务器DDR5从$6.01涨至$11.40/颗，涨幅约90%。三星Q2 DDR5/HBM合同价上调30%，SK海力士DDR5涨40%，32G DDR5累计涨300%。万联证券预计Q2合约价持续上涨。HBM/服务器级产品缺货至2030年。</p>
+    <div class="tag-row">
+      <span class="tag-pill tag-red">DDR5 +90%</span>
+      <span class="tag-pill tag-orange">HBM紧缺</span>
+      <span class="tag-pill tag-blue">三星/SK海力士</span>
+      <span class="tag-pill tag-green">长鑫替代窗口</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cat"><span class="tag-pill tag-purple">🤖 AI</span> 💡 AI大模型</div>
+    <h3>GPT-6发布后Day 2：Anthropic年化$300亿反超OpenAI</h3>
+    <p>GPT-6（Spud）4月14日发布后，AI板块持续发酵。Anthropic年化收入突破$300亿反超OpenAI的$250亿，4个月增长233%，IPO最早10月，估值$400-500B。智谱GLM-5.1登顶SWE-bench Pro编程第一。DeepSeek V4官宣4月下旬发布，$0.28/MT比GPT-6便宜9倍，完全昇腾运行。</p>
+    <table class="data-table">
+      <tr><td>GPT-6</td><td style="color:#44ff44;">✅ 已发布 · Symphony架构</td></tr>
+      <tr><td>Anthropic</td><td style="color:#ff6666;">$300亿ARR · 反超OpenAI</td></tr>
+      <tr><td>DeepSeek V4</td><td>4月下旬 · $0.28/MT · 昇腾950PR</td></tr>
+      <tr><td>GLM-5.1</td><td style="color:#44ff44;">编程第1 · 超Claude Opus 4.6</td></tr>
+    </table>
+    <div class="tag-row">
+      <span class="tag-pill tag-purple">GPT-6</span>
+      <span class="tag-pill tag-blue">Anthropic IPO</span>
+      <span class="tag-pill tag-green">DeepSeek V4</span>
+      <span class="tag-pill tag-orange">GLM-5.1</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cat"><span class="tag-pill tag-pink">⚖️ 关注</span> 🌐 国际与诉讼</div>
+    <h3>马斯克诉OpenAI千亿美元案临近，OpenAI反指其扰乱庭审</h3>
+    <p>马斯克诉OpenAI案索赔$790-1340亿，4月下旬进入审判程序。OpenAI 4月11日反诉马斯克扰乱庭审。4月8日马斯克正式提交文件要求罢免奥特曼职务。此案结果将深刻影响AI行业格局和OpenAI上市进程。</p>
+    <div class="tag-row">
+      <span class="tag-pill tag-red">索赔$1340亿</span>
+      <span class="tag-pill tag-orange">罢免奥特曼</span>
+      <span class="tag-pill tag-purple">4月下旬开庭</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="cat"><span class="tag-pill tag-green">🏭 产业</span> 🤖 智元大会</div>
+    <h3>智元4月17日合作伙伴大会：4款本体+4个大模型，具身智能产业化加速</h3>
+    <p>智元机器人将于4月17日在上海举办2026合作伙伴大会，2500人/34国参会。将发布4个机器人本体新品、4个AI大模型及7个解决方案，展示"一体三智"全栈架构。创始人邓锐民将分享具身智能商业化进展。智元精灵G2已在龙旗科技工厂实现全球首个具身智能产线规模化落地。</p>
+    <div class="tag-row">
+      <span class="tag-pill tag-green">具身智能</span>
+      <span class="tag-pill tag-blue">4款本体</span>
+      <span class="tag-pill tag-purple">芯片需求</span>
+      <span class="tag-pill tag-orange">产业化</span>
+    </div>
+  </div>
+
+  <!-- 业务影响 -->
+  <div class="section-title">📊 Sean 业务影响分析</div>
+  <div class="impact-grid">
+    <div class="impact-item">
+      <div class="icon">📈</div>
+      <div class="type positive">[利好] 全产业链涨价</div>
+      <div class="content">艾华/芯洲/润石定价权提升，客户采购意愿回升</div>
+    </div>
+    <div class="impact-item">
+      <div class="icon">⚡</div>
+      <div class="type positive">[利好] 功率器件涨价</div>
+      <div class="content">芯洲DC-DC转换器直接受益，跟涨10-20%</div>
+    </div>
+    <div class="impact-item">
+      <div class="icon">💾</div>
+      <div class="type positive">[利好] 存储DDR5涨价</div>
+      <div class="content">艾华铝电解电容出货量增长，配套需求上升</div>
+    </div>
+    <div class="impact-item">
+      <div class="icon">🤖</div>
+      <div class="type opportunity">[机会] AI算力爆发</div>
+      <div class="content">GPT-6+DeepSeek V4→算力需求→芯洲/艾华双受益</div>
+    </div>
+    <div class="impact-item">
+      <div class="icon">🔬</div>
+      <div class="type opportunity">[机会] ST涨价函倒计时</div>
+      <div class="content">4/26生效前客户集中备货窗口，润石替代空间扩大</div>
+    </div>
+    <div class="impact-item">
+      <div class="icon">🏭</div>
+      <div class="type opportunity">[机会] 具身智能大会</div>
+      <div class="content">智元4/17大会→功率器件/传感器芯片需求增长</div>
+    </div>
+    <div class="impact-item">
+      <div class="icon">⚠️</div>
+      <div class="type risk">[风险] 马斯克诉讼</div>
+      <div class="content">4月下旬开庭→OpenAI上市不确定性→AI板块情绪波动</div>
+    </div>
+    <div class="impact-item">
+      <div class="icon">📉</div>
+      <div class="type risk">[风险] A股冲高回落</div>
+      <div class="content">4000点关口震荡，深成指/创业板分化，注意板块轮动</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>🦞 小新早报 · 小芯专家供应链情报</p>
+    <p>数据截至 2026-04-16 02:00 · 仅供参考不构成投资建议</p>
+  </div>
+
+</div>
+</body>
+</html>
