@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📰 小新早报 · 2026-04-17</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e8e8e8;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .header h1 {
+            font-size: 28px;
+            color: #f0c040;
+            margin-bottom: 8px;
+        }
+        .header .date {
+            color: #888;
+            font-size: 14px;
+        }
+        .summary-card {
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            border-left: 4px solid #f0c040;
+        }
+        .summary-card h3 {
+            color: #f0c040;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        .summary-card p {
+            color: #ccc;
+            font-size: 14px;
+        }
+        .news-card {
+            background: rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: transform 0.2s, background 0.2s;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .news-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+        .news-card .category {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        .category-finance { background: rgba(255, 87, 87, 0.3); color: #ff6b6b; }
+        .category-tech { background: rgba(116, 185, 255, 0.3); color: #74b9ff; }
+        .category-chip { background: rgba(253, 203, 110, 0.3); color: #fdcb6e; }
+        .category-global { background: rgba(162, 155, 254, 0.3); color: #a29bfe; }
+        .news-card h2 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .news-card .summary {
+            color: #b8b8b8;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        .news-card .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .keyword {
+            background: rgba(255,255,255,0.1);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: #aaa;
+        }
+        .highlight-card {
+            background: linear-gradient(135deg, rgba(253, 203, 110, 0.15), rgba(255, 107, 107, 0.15));
+            border: 1px solid rgba(253, 203, 110, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+        .highlight-card h3 {
+            color: #f0c040;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        .highlight-card ul {
+            list-style: none;
+            color: #ccc;
+            font-size: 14px;
+        }
+        .highlight-card li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        .highlight-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #f0c040;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 12px;
+        }
+        .timestamp {
+            color: #888;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📰 小新早报</h1>
+            <div class="date">2026年4月17日 · 星期五</div>
+            <div class="timestamp">生成时间: 2026-04-17 02:00</div>
+        </div>
+
+        <div class="summary-card">
+            <h3>📌 今日核心要点</h3>
+            <p>智元机器人大会今日召开，具身智能产业化加速；A股放量上涨，创业板创近11年新高；存储芯片涨价链条持续，DDR5涨价90%创新高；ST/Allegro涨价倒计时启动，国产替代窗口持续打开。</p>
+        </div>
+
+        <div class="highlight-card">
+            <h3>🏭 对Sean业务影响</h3>
+            <ul>
+                <li><strong style="color:#90f090">[利好]</strong> 具身智能大会召开 → 芯片/传感器/功率器件需求增长，芯洲DC-DC受益</li>
+                <li><strong style="color:#90f090">[利好]</strong> 全产业链涨价 → 艾华/芯洲/润石定价权提升</li>
+                <li><strong style="color:#90f090">[利好]</strong> 存储芯片涨价 → 艾华铝电解电容出货量增长</li>
+                <li><strong style="color:#f0c040">[机会]</strong> ST 4/26涨价倒计时9天 → 客户集中备货窗口</li>
+                <li><strong style="color:#f0c040">[机会]</strong> 国产替代持续加速 → 润石/艾华/芯洲替代空间扩大</li>
+                <li><strong style="color:#ff9090">[风险]</strong> 马斯克诉讼4/27开庭 → AI板块情绪波动</li>
+            </ul>
+        </div>
+
+        <div class="news-card">
+            <span class="category category-finance">💰 财经</span>
+            <h2>A股4月16日大涨，创业板创近11年新高</h2>
+            <p class="summary">沪指涨0.7%报4055.55点，深成指涨2.05%报14796.33点，创业板指涨3.17%续刷近11年新高。成交放量，宁德时代市值超2万亿，算力硬件概念集体拉升。</p>
+            <div class="keywords">
+                <span class="keyword">A股</span>
+                <span class="keyword">创业板 +3.17%</span>
+                <span class="keyword">沪指 +0.7%</span>
+                <span class="keyword">深成指 +2.05%</span>
+                <span class="keyword">宁德时代</span>
+                <span class="keyword">成交放量</span>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <span class="category category-finance">💰 财经</span>
+            <h2>存储芯片三巨头市值破千亿，DDR5涨价90%创历史新高</h2>
+            <p class="summary">江波龙、佰维存储、德明利总市值均突破千亿元，服务器DDR5从$6.01涨至$11.40，涨幅90%创历史新高。HBM持续紧缺，SK海力士预测缺货至2030年。</p>
+            <div class="keywords">
+                <span class="keyword">存储</span>
+                <span class="keyword">DDR5 +90%</span>
+                <span class="keyword">市值破千亿</span>
+                <span class="keyword">江波龙</span>
+                <span class="keyword">佰维存储</span>
+                <span class="keyword">德明利</span>
+                <span class="keyword">HBM</span>
+                <span class="keyword">缺货至2030年</span>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <span class="category category-tech">🤖 AI/科技</span>
+            <h2>🎉 智元机器人今日举办2026合作伙伴大会</h2>
+            <p class="summary">2500人/34国参会，发布4款本体+4个大模型+7个解决方案。智元精灵G2工厂规模化落地，具身智能产业化全面加速。</p>
+            <div class="keywords">
+                <span class="keyword">智元机器人</span>
+                <span class="keyword">具身智能</span>
+                <span class="keyword">大会今日召开</span>
+                <span class="keyword">4款本体</span>
+                <span class="keyword">4个大模型</span>
+                <span class="keyword">2500人/34国</span>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <span class="category category-chip">🔬 半导体</span>
+            <h2>ST 4月26日涨价倒计时9天，Allegro 4月27日涨价倒计时10天</h2>
+            <p class="summary">意法半导体和Allegro相继发布涨价函，功率器件/传感器全线跟涨10-20%，华润微+13%。国产替代窗口加速打开，润石/艾华直接受益。</p>
+            <div class="keywords">
+                <span class="keyword">ST涨价</span>
+                <span class="keyword">Allegro涨价</span>
+                <span class="keyword">功率器件</span>
+                <span class="keyword">传感器</span>
+                <span class="keyword">国产替代</span>
+                <span class="keyword">倒计时9/10天</span>
+                <span class="keyword">华润微+13%</span>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <span class="category category-global">🌐 国际</span>
+            <h2>马斯克诉OpenAI 4月27日开庭倒计时10天</h2>
+            <p class="summary">索赔790-1340亿美元，马斯克要求罢免Altman，OpenAI反诉马斯克扰乱庭审。这场千亿美元级诉讼将对AI行业格局产生深远影响。</p>
+            <div class="keywords">
+                <span class="keyword">马斯克</span>
+                <span class="keyword">OpenAI</span>
+                <span class="keyword">诉讼</span>
+                <span class="keyword">4月27日开庭</span>
+                <span class="keyword">索赔1340亿美元</span>
+                <span class="keyword">Altman</span>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <span class="category category-tech">🤖 AI/科技</span>
+            <h2>DeepSeek V4官宣4月下旬发布</h2>
+            <p class="summary">万亿参数MoE架构，推理速度比V3提升35倍，首次深度适配华为昇腾950PR，$0.28/MT比GPT-6便宜16倍。</p>
+            <div class="keywords">
+                <span class="keyword">DeepSeek V4</span>
+                <span class="keyword">华为昇腾950PR</span>
+                <span class="keyword">MoE架构</span>
+                <span class="keyword">推理加速35倍</span>
+                <span class="keyword">4月下旬发布</span>
+                <span class="keyword">$0.28/MT</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>📰 小新早报 · Sean专属情报助手</p>
+            <p>🦞 Powered by WorkBuddy</p>
+        </div>
+    </div>
+</body>
+</html>
