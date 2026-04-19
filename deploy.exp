@@ -1,0 +1,32 @@
+#!/usr/bin/expect -f
+set timeout 60
+
+spawn bash -c "cd /Users/sean/xiaoxin-news && export PATH=\"/Users/sean/.workbuddy/binaries/node/versions/22.12.0/bin:\$PATH\" && npx vercel --prod"
+
+expect "? Set up and deploy"
+send "Y\r"
+
+expect {
+    "? Which scope" {
+        send "\r"
+        exp_continue
+    }
+    "? Link to existing project" {
+        send "n\r"
+        exp_continue
+    }
+    "? What\'s your project name" {
+        send "xiaoxin-news\r"
+        exp_continue
+    }
+    "Production:" {
+        set output $expect_out(buffer)
+        puts "\n\n✅ 部署成功！"
+        puts "链接已生成\n"
+    }
+    timeout {
+        puts "\n\n⏰ 超时，请检查输出\n"
+    }
+}
+
+expect eof
