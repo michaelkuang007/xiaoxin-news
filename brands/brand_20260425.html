@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔬 每日芯片品牌速递 - 安森美 (onsemi)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        
+        .header {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .header h1 { font-size: 24px; color: #333; margin-bottom: 10px; }
+        .header .meta { color: #666; font-size: 14px; }
+        
+        .section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* 品牌概览表格 */
+        .overview-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .overview-table th, .overview-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .overview-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+            width: 30%;
+        }
+        
+        /* 产品线卡片 */
+        .products-grid {
+            display: grid;
+            gap: 16px;
+        }
+        .product-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 4px solid #667eea;
+        }
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .product-detail p {
+            font-size: 13px;
+            color: #666;
+            margin: 6px 0;
+            line-height: 1.5;
+        }
+        
+        /* 应用领域条形图 */
+        .app-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .app-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .app-label {
+            width: 100px;
+            font-size: 13px;
+            color: #333;
+            flex-shrink: 0;
+        }
+        .app-progress {
+            flex: 1;
+            height: 24px;
+            background: #f0f0f0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .app-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            transition: width 0.5s ease;
+        }
+        .app-percent {
+            width: 50px;
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 600;
+            text-align: right;
+        }
+        
+        /* 客户群体 */
+        .customers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .customer-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px;
+        }
+        .customer-type {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+        }
+        .customer-names {
+            font-size: 13px;
+            color: #667eea;
+            margin-bottom: 4px;
+        }
+        .customer-products {
+            font-size: 12px;
+            color: #888;
+        }
+        
+        /* 趋势分析 */
+        .trends-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .trend-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .trend-dot {
+            color: #667eea;
+            font-size: 20px;
+            line-height: 1;
+        }
+        .trend-content {
+            flex: 1;
+        }
+        .trend-content strong {
+            font-size: 14px;
+            color: #333;
+        }
+        .trend-content p {
+            font-size: 13px;
+            color: #666;
+            margin-top: 4px;
+            line-height: 1.6;
+        }
+        
+        /* 机会点 */
+        .opportunities-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .opportunity-item {
+            background: linear-gradient(135deg, #fff9f0 0%, #fff5e6 100%);
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 4px solid #ffa502;
+        }
+        .opp-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .opp-suggestion {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* 评分 */
+        .rating-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .rating-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+        }
+        .rating-label {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .rating-stars {
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+        
+        /* 综合建议 */
+        .recommendation-box {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+        .rec-level {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .rec-reason {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+        .rec-action {
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 500;
+        }
+        
+        /* 关键词标签 */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag {
+            display: inline-block;
+            background: #f0f4ff;
+            color: #667eea;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+        
+        .footer {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            padding: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔬 每日芯片品牌速递</h1>
+            <div class="meta">2026年04月25日 | 品牌：安森美 (onsemi)</div>
+        </div>
+        
+        <!-- 品牌概览 -->
+        <div class="section">
+            <h2>📋 品牌概览</h2>
+            <table class="overview-table">
+                <tr><th>品牌名称</th><td>安森美 (onsemi)</td></tr>
+                <tr><th>总部所在地</th><td>美国</td></tr>
+                <tr><th>成立时间</th><td>1999年</td></tr>
+                <tr><th>年营业额</th><td>82亿美元 (2024)</td></tr>
+                <tr><th>员工人数</th><td>约30,000</td></tr>
+                <tr><th>上市情况</th><td>纳斯达克: ON</td></tr>
+                <tr><th>主要产品</th><td>功率器件/图像传感器</td></tr>
+            </table>
+        </div>
+        
+        <!-- 关键词 -->
+        <div class="section">
+            <h2>🏷️ 核心关键词</h2>
+            <div class="tags-container">
+                <span class="tag">SiC碳化硅</span><span class="tag">图像传感器</span><span class="tag">汽车电子</span><span class="tag">功率器件</span>
+            </div>
+        </div>
+        
+        <!-- 核心产品线 -->
+        <div class="section">
+            <h2>🏆 核心产品线</h2>
+            <div class="products-grid">
+        <div class="product-card">
+            <div class="product-name">🏆 SiC功率器件</div>
+            <div class="product-detail">
+                <p><strong>代表型号：</strong>M1系列、EliteSiC系列</p>
+                <p><strong>技术特点：</strong>高温高压、高效率，800V平台主流选择</p>
+                <p><strong>市场份额：</strong>全球SiC市场约15%，仅次于英飞凌</p>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-name">🏆 图像传感器</div>
+            <div class="product-detail">
+                <p><strong>代表型号：</strong>AR系列、Hayabusa系列</p>
+                <p><strong>技术特点：</strong>高分辨率、高帧率、车规级，ADAS首选</p>
+                <p><strong>市场份额：</strong>车载图像传感器全球第一，约40%</p>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-name">🏆 IGBT模块</div>
+            <div class="product-detail">
+                <p><strong>代表型号：</strong>NX系列、NF系列</p>
+                <p><strong>技术特点：</strong>车规级、高可靠性，新能源汽车应用</p>
+                <p><strong>市场份额：</strong>全球IGBT约10%</p>
+            </div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 应用领域分布 -->
+        <div class="section">
+            <h2>📊 应用领域分布</h2>
+            <div class="app-bars">
+        <div class="app-bar">
+            <div class="app-label">汽车电子</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 40.0%"></div>
+            </div>
+            <div class="app-percent">50%</div>
+        </div>
+        
+        <div class="app-bar">
+            <div class="app-label">工业</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 20.0%"></div>
+            </div>
+            <div class="app-percent">25%</div>
+        </div>
+        
+        <div class="app-bar">
+            <div class="app-label">通信</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 12.0%"></div>
+            </div>
+            <div class="app-percent">15%</div>
+        </div>
+        
+        <div class="app-bar">
+            <div class="app-label">消费电子</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 8.0%"></div>
+            </div>
+            <div class="app-percent">10%</div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 核心客户群体 -->
+        <div class="section">
+            <h2>👥 核心客户群体</h2>
+            <div class="customers-list">
+        <div class="customer-item">
+            <div class="customer-type">汽车主机厂</div>
+            <div class="customer-names">大众、宝马、奔驰、蔚来、理想</div>
+            <div class="customer-products">应用：SiC模块、图像传感器、IGBT</div>
+        </div>
+        
+        <div class="customer-item">
+            <div class="customer-type">Tier1供应商</div>
+            <div class="customer-names">博世、大陆、Mobileye</div>
+            <div class="customer-products">应用：车载摄像头模组、功率模块</div>
+        </div>
+        
+        <div class="customer-item">
+            <div class="customer-type">工业客户</div>
+            <div class="customer-names">西门子、ABB</div>
+            <div class="customer-products">应用：工业功率器件</div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 行业趋势 -->
+        <div class="section">
+            <h2>📈 行业趋势分析</h2>
+            <div class="trends-list">
+        <div class="trend-item">
+            <div class="trend-dot">●</div>
+            <div class="trend-content">
+                <strong>智能电动汽车驱动</strong>
+                <p>ADAS和800V平台推动图像传感器和SiC需求，安森美双赛道布局</p>
+            </div>
+        </div>
+        
+        <div class="trend-item">
+            <div class="trend-dot">●</div>
+            <div class="trend-content">
+                <strong>图像传感器龙头地位</strong>
+                <p>车载CIS市占率超40%，特斯拉、蔚来等主流车企首选</p>
+            </div>
+        </div>
+        
+        <div class="trend-item">
+            <div class="trend-dot">●</div>
+            <div class="trend-content">
+                <strong>SiC产能扩张</strong>
+                <p>收购GTAT获得SiC衬底能力，垂直整合降低成本</p>
+            </div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 机会点评估 -->
+        <div class="section">
+            <h2>💡 机会点评估</h2>
+            <div class="opportunities-list">
+        <div class="opportunity-item">
+            <div class="opp-title">💡 车载图像传感器替代</div>
+            <div class="opp-suggestion">建议：安森美车载CIS价格较高，国产韦尔股份、思特威有机会切入</div>
+        </div>
+        
+        <div class="opportunity-item">
+            <div class="opp-title">💡 SiC器件机会</div>
+            <div class="opp-suggestion">建议：安森美SiC产能紧张，国产斯达半导、时代电气有机会替代</div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 综合评分 -->
+        <div class="section">
+            <h2>⭐ 综合评估</h2>
+            <div class="rating-grid">
+        <div class="rating-item">
+            <div class="rating-label">产品竞争力</div>
+            <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        
+        <div class="rating-item">
+            <div class="rating-label">市场空间</div>
+            <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        
+        <div class="rating-item">
+            <div class="rating-label">渠道政策</div>
+            <div class="rating-stars">⭐⭐⭐☆☆</div>
+        </div>
+        
+        <div class="rating-item">
+            <div class="rating-label">国产替代契合度</div>
+            <div class="rating-stars">⭐⭐⭐⭐☆</div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 关注建议 -->
+        <div class="section">
+            <h2>🎯 是否值得大力关注？</h2>
+            <div class="recommendation-box">
+                <div class="rec-level">值得关注</div>
+                <div class="rec-reason">车载图像传感器和SiC双龙头，汽车电子核心供应商。产品技术领先，但国产替代机会主要在产能紧张时期。</div>
+                <div class="rec-action">📌 下一步行动：关注其SiC和CIS缺货情况，寻找国产替代窗口；跟踪其在中国市场的渠道政策</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>🦞 小芯专家 - 每日芯片品牌速递</p>
+            <p>每天了解一家原厂，发现机会点</p>
+        </div>
+    </div>
+</body>
+</html>
