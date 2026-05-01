@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔬 每日芯片品牌速递 - 圣邦股份 (SGMICRO)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        
+        .header {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .header h1 { font-size: 24px; color: #333; margin-bottom: 10px; }
+        .header .meta { color: #666; font-size: 14px; }
+        
+        .section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* 品牌概览表格 */
+        .overview-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .overview-table th, .overview-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .overview-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+            width: 30%;
+        }
+        
+        /* 产品线卡片 */
+        .products-grid {
+            display: grid;
+            gap: 16px;
+        }
+        .product-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 4px solid #667eea;
+        }
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .product-detail p {
+            font-size: 13px;
+            color: #666;
+            margin: 6px 0;
+            line-height: 1.5;
+        }
+        
+        /* 应用领域条形图 */
+        .app-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .app-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .app-label {
+            width: 100px;
+            font-size: 13px;
+            color: #333;
+            flex-shrink: 0;
+        }
+        .app-progress {
+            flex: 1;
+            height: 24px;
+            background: #f0f0f0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .app-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            transition: width 0.5s ease;
+        }
+        .app-percent {
+            width: 50px;
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 600;
+            text-align: right;
+        }
+        
+        /* 客户群体 */
+        .customers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .customer-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px;
+        }
+        .customer-type {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+        }
+        .customer-names {
+            font-size: 13px;
+            color: #667eea;
+            margin-bottom: 4px;
+        }
+        .customer-products {
+            font-size: 12px;
+            color: #888;
+        }
+        
+        /* 趋势分析 */
+        .trends-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .trend-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .trend-dot {
+            color: #667eea;
+            font-size: 20px;
+            line-height: 1;
+        }
+        .trend-content {
+            flex: 1;
+        }
+        .trend-content strong {
+            font-size: 14px;
+            color: #333;
+        }
+        .trend-content p {
+            font-size: 13px;
+            color: #666;
+            margin-top: 4px;
+            line-height: 1.6;
+        }
+        
+        /* 机会点 */
+        .opportunities-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .opportunity-item {
+            background: linear-gradient(135deg, #fff9f0 0%, #fff5e6 100%);
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 4px solid #ffa502;
+        }
+        .opp-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .opp-suggestion {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* 评分 */
+        .rating-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .rating-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+        }
+        .rating-label {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .rating-stars {
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+        
+        /* 综合建议 */
+        .recommendation-box {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+        .rec-level {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .rec-reason {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+        .rec-action {
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 500;
+        }
+        
+        /* 关键词标签 */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag {
+            display: inline-block;
+            background: #f0f4ff;
+            color: #667eea;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+        
+        .footer {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            padding: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔬 每日芯片品牌速递</h1>
+            <div class="meta">2026年05月01日 | 品牌：圣邦股份 (SGMICRO)</div>
+        </div>
+        
+        <!-- 品牌概览 -->
+        <div class="section">
+            <h2>📋 品牌概览</h2>
+            <table class="overview-table">
+                <tr><th>品牌名称</th><td>圣邦股份 (SGMICRO)</td></tr>
+                <tr><th>总部所在地</th><td>中国</td></tr>
+                <tr><th>成立时间</th><td>2007年</td></tr>
+                <tr><th>年营业额</th><td>约25亿人民币 (2024)</td></tr>
+                <tr><th>员工人数</th><td>约800</td></tr>
+                <tr><th>上市情况</th><td>深交所: 300661</td></tr>
+                <tr><th>主要产品</th><td>模拟芯片/电源管理</td></tr>
+            </table>
+        </div>
+        
+        <!-- 关键词 -->
+        <div class="section">
+            <h2>🏷️ 核心关键词</h2>
+            <div class="tags-container">
+                <span class="tag">模拟芯片</span><span class="tag">电源管理</span><span class="tag">信号链</span><span class="tag">国产替代</span>
+            </div>
+        </div>
+        
+        <!-- 核心产品线 -->
+        <div class="section">
+            <h2>🏆 核心产品线</h2>
+            <div class="products-grid">
+        <div class="product-card">
+            <div class="product-name">🏆 运算放大器</div>
+            <div class="product-detail">
+                <p><strong>代表型号：</strong>SGM8xx、SGM9xx系列</p>
+                <p><strong>技术特点：</strong>高精度、低功耗、pin-to-pin兼容TI</p>
+                <p><strong>市场份额：</strong>国产运放前三</p>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-name">🏆 电源管理</div>
+            <div class="product-detail">
+                <p><strong>代表型号：</strong>SGM20xx、SGM60xx系列</p>
+                <p><strong>技术特点：</strong>LDO、DC-DC、充电管理，品类齐全</p>
+                <p><strong>市场份额：</strong>国产电源管理前五</p>
+            </div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-name">🏆 模拟开关</div>
+            <div class="product-detail">
+                <p><strong>代表型号：</strong>SGM37xx、SGM38xx系列</p>
+                <p><strong>技术特点：</strong>低导通电阻、高带宽</p>
+                <p><strong>市场份额：</strong>国产模拟开关前三</p>
+            </div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 应用领域分布 -->
+        <div class="section">
+            <h2>📊 应用领域分布</h2>
+            <div class="app-bars">
+        <div class="app-bar">
+            <div class="app-label">消费电子</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 32.0%"></div>
+            </div>
+            <div class="app-percent">40%</div>
+        </div>
+        
+        <div class="app-bar">
+            <div class="app-label">通信设备</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 20.0%"></div>
+            </div>
+            <div class="app-percent">25%</div>
+        </div>
+        
+        <div class="app-bar">
+            <div class="app-label">工业控制</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 16.0%"></div>
+            </div>
+            <div class="app-percent">20%</div>
+        </div>
+        
+        <div class="app-bar">
+            <div class="app-label">汽车电子</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 8.0%"></div>
+            </div>
+            <div class="app-percent">10%</div>
+        </div>
+        
+        <div class="app-bar">
+            <div class="app-label">医疗电子</div>
+            <div class="app-progress">
+                <div class="app-fill" style="width: 4.0%"></div>
+            </div>
+            <div class="app-percent">5%</div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 核心客户群体 -->
+        <div class="section">
+            <h2>👥 核心客户群体</h2>
+            <div class="customers-list">
+        <div class="customer-item">
+            <div class="customer-type">消费电子</div>
+            <div class="customer-names">小米、OPPO、vivo、荣耀</div>
+            <div class="customer-products">应用：电源管理、运放</div>
+        </div>
+        
+        <div class="customer-item">
+            <div class="customer-type">通信设备</div>
+            <div class="customer-names">华为、中兴、烽火</div>
+            <div class="customer-products">应用：信号链、电源管理</div>
+        </div>
+        
+        <div class="customer-item">
+            <div class="customer-type">工业客户</div>
+            <div class="customer-names">汇川、英威腾</div>
+            <div class="customer-products">应用：运放、电源管理</div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 行业趋势 -->
+        <div class="section">
+            <h2>📈 行业趋势分析</h2>
+            <div class="trends-list">
+        <div class="trend-item">
+            <div class="trend-dot">●</div>
+            <div class="trend-content">
+                <strong>TI直销转型受益</strong>
+                <p>TI削减代理商后，圣邦成为中小客户的重要替代选择</p>
+            </div>
+        </div>
+        
+        <div class="trend-item">
+            <div class="trend-dot">●</div>
+            <div class="trend-content">
+                <strong>品类持续扩展</strong>
+                <p>每年推出200+新品，覆盖更多应用场景</p>
+            </div>
+        </div>
+        
+        <div class="trend-item">
+            <div class="trend-dot">●</div>
+            <div class="trend-content">
+                <strong>车规级布局</strong>
+                <p>积极开发车规级产品，进入汽车电子市场</p>
+            </div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 机会点评估 -->
+        <div class="section">
+            <h2>💡 机会点评估</h2>
+            <div class="opportunities-list">
+        <div class="opportunity-item">
+            <div class="opp-title">💡 TI替代机会</div>
+            <div class="opp-suggestion">建议：圣邦产品与TI兼容性好，是中小客户替代TI的首选，可重点推广</div>
+        </div>
+        
+        <div class="opportunity-item">
+            <div class="opp-title">💡 消费电子复苏</div>
+            <div class="opp-suggestion">建议：2024年消费电子回暖，圣邦作为手机供应链企业受益</div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 综合评分 -->
+        <div class="section">
+            <h2>⭐ 综合评估</h2>
+            <div class="rating-grid">
+        <div class="rating-item">
+            <div class="rating-label">产品竞争力</div>
+            <div class="rating-stars">⭐⭐⭐⭐☆</div>
+        </div>
+        
+        <div class="rating-item">
+            <div class="rating-label">市场空间</div>
+            <div class="rating-stars">⭐⭐⭐⭐☆</div>
+        </div>
+        
+        <div class="rating-item">
+            <div class="rating-label">渠道政策</div>
+            <div class="rating-stars">⭐⭐⭐⭐☆</div>
+        </div>
+        
+        <div class="rating-item">
+            <div class="rating-label">国产替代契合度</div>
+            <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- 关注建议 -->
+        <div class="section">
+            <h2>🎯 是否值得大力关注？</h2>
+            <div class="recommendation-box">
+                <div class="rec-level">值得合作</div>
+                <div class="rec-reason">国内模拟芯片龙头，产品品类齐全，与TI兼容性好。TI直销转型后，圣邦替代机会增多。</div>
+                <div class="rec-action">📌 下一步行动：重点推广运放和电源管理产品，切入消费电子和通信客户；关注其新品发布</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>🦞 小芯专家 - 每日芯片品牌速递</p>
+            <p>每天了解一家原厂，发现机会点</p>
+        </div>
+    </div>
+</body>
+</html>
